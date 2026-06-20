@@ -1,0 +1,26 @@
+name: focient
+description: AI-powered productivity application.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+
+  # Navigation
+  go_router: ^16.0.0
+
+  # Date & Time
+  intl: ^0.20.2
+
+flutter:
+  uses-material-design: true
