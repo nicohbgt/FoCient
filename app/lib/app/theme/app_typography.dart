@@ -3,131 +3,115 @@ import 'package:flutter/material.dart';
 class AppTypography {
   AppTypography._();
 
-  static const DisplayTypography display = DisplayTypography();
-  static const HeadlineTypography headline = HeadlineTypography();
-  static const TitleTypography title = TitleTypography();
-  static const BodyTypography body = BodyTypography();
-  static const LabelTypography label = LabelTypography();
-}
+  // Display
 
-class DisplayTypography {
-  const DisplayTypography();
-
-  final TextStyle large = const TextStyle(
+  static const TextStyle displayLarge = TextStyle(
     fontFamily: 'Inter',
     fontSize: 48,
     fontWeight: FontWeight.w700,
     height: 56 / 48,
   );
 
-  final TextStyle medium = const TextStyle(
+  static const TextStyle displayMedium = TextStyle(
     fontFamily: 'Inter',
     fontSize: 40,
     fontWeight: FontWeight.w700,
     height: 48 / 40,
   );
 
-  final TextStyle small = const TextStyle(
+  static const TextStyle displaySmall = TextStyle(
     fontFamily: 'Inter',
     fontSize: 32,
     fontWeight: FontWeight.w700,
     height: 40 / 32,
   );
-}
 
-class HeadlineTypography {
-  const HeadlineTypography();
+  // Headline
 
-  final TextStyle large = const TextStyle(
+  static const TextStyle headlineLarge = TextStyle(
     fontFamily: 'Inter',
     fontSize: 28,
     fontWeight: FontWeight.w700,
     height: 36 / 28,
   );
 
-  final TextStyle medium = const TextStyle(
+  static const TextStyle headlineMedium = TextStyle(
     fontFamily: 'Inter',
     fontSize: 24,
     fontWeight: FontWeight.w600,
     height: 32 / 24,
   );
 
-  final TextStyle small = const TextStyle(
+  static const TextStyle headlineSmall = TextStyle(
     fontFamily: 'Inter',
     fontSize: 20,
     fontWeight: FontWeight.w600,
     height: 28 / 20,
   );
-}
 
-class TitleTypography {
-  const TitleTypography();
+  // Title
 
-  final TextStyle large = const TextStyle(
+  static const TextStyle titleLarge = TextStyle(
     fontFamily: 'Inter',
     fontSize: 18,
     fontWeight: FontWeight.w600,
     height: 28 / 18,
   );
 
-  final TextStyle medium = const TextStyle(
+  static const TextStyle titleMedium = TextStyle(
     fontFamily: 'Inter',
     fontSize: 16,
     fontWeight: FontWeight.w600,
     height: 24 / 16,
   );
 
-  final TextStyle small = const TextStyle(
+  static const TextStyle titleSmall = TextStyle(
     fontFamily: 'Inter',
     fontSize: 14,
     fontWeight: FontWeight.w600,
     height: 20 / 14,
   );
-}
 
-class BodyTypography {
-  const BodyTypography();
+  // Body
 
-  final TextStyle large = const TextStyle(
+  static const TextStyle bodyLarge = TextStyle(
     fontFamily: 'Inter',
     fontSize: 16,
     fontWeight: FontWeight.w400,
     height: 24 / 16,
   );
 
-  final TextStyle medium = const TextStyle(
+  static const TextStyle bodyMedium = TextStyle(
     fontFamily: 'Inter',
     fontSize: 14,
     fontWeight: FontWeight.w400,
     height: 20 / 14,
   );
 
-  final TextStyle small = const TextStyle(
+  static const TextStyle bodySmall = TextStyle(
     fontFamily: 'Inter',
     fontSize: 12,
     fontWeight: FontWeight.w400,
     height: 18 / 12,
   );
-}
 
-class LabelTypography {
-  const LabelTypography();
+  // Label
 
-  final TextStyle large = const TextStyle(
+  static const TextStyle labelLarge = TextStyle(
     fontFamily: 'Inter',
     fontSize: 14,
     fontWeight: FontWeight.w500,
     height: 20 / 14,
   );
 
-  final TextStyle medium = const TextStyle(
+  static const TextStyle labelMedium = TextStyle(
     fontFamily: 'Inter',
     fontSize: 12,
     fontWeight: FontWeight.w500,
     height: 16 / 12,
   );
 
-  final TextStyle small = const TextStyle(
+  static const TextStyle labelSmall = TextStyle(
     fontFamily: 'Inter',
     fontSize: 11,
     fontWeight: FontWeight.w500,
