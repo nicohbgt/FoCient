@@ -13,27 +13,19 @@ enum AppButtonType {
   error,
 }
 
-enum AppButtonSize {
-  small,
-  medium,
-  large,
-}
-
 class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
     required this.label,
     required this.onPressed,
     this.type = AppButtonType.primary,
-    this.size = AppButtonSize.medium,
     this.isLoading = false,
-    this.fullWidth = true,
+    this.fullWidth = false,
   });
 
   final String label;
   final VoidCallback? onPressed;
   final AppButtonType type;
-  final AppButtonSize size;
   final bool isLoading;
   final bool fullWidth;
 
@@ -41,25 +33,30 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: fullWidth ? double.infinity : null,
-      height: _buttonHeight,
-      child: ElevatedButton(
-        onPressed: isLoading ? null : onPressed,
-        style: _buttonStyle,
-        child: _buildContent(),
+    return Semantics(
+      button: true,
+      label: label,
+      enabled: !isDisabled,
+      child: SizedBox(
+        width: fullWidth ? double.infinity : _buttonWidth,
+        height: _buttonHeight,
+        child: ElevatedButton(
+          onPressed: isLoading ? null : onPressed,
+          style: _buttonStyle,
+          child: _buildContent(),
+        ),
       ),
     );
   }
 
   Widget _buildContent() {
     if (isLoading) {
-      return const SizedBox(
-        width: 20,
-        height: 20,
+      return SizedBox(
+        width: 16,
+        height: 16,
         child: CircularProgressIndicator(
           strokeWidth: 2,
-          color: Colors.white,
+          color: _loadingColor,
         ),
       );
     }
@@ -67,6 +64,8 @@ class AppButton extends StatelessWidget {
     return Text(
       label,
       style: _textStyle,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
     );
   }
 
@@ -81,13 +80,13 @@ class AppButton extends StatelessWidget {
       ),
       padding: WidgetStateProperty.all(
         EdgeInsets.symmetric(
-          horizontal: AppSpacing.s8,
+          horizontal: AppSpacing.s16,
         ),
       ),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            AppRadius.r8,
+            AppRadius.r12,
           ),
         ),
       ),
@@ -95,40 +94,46 @@ class AppButton extends StatelessWidget {
   }
 
   Color _backgroundColor(Set<WidgetState> states) {
-    final isDisabled = states.contains(WidgetState.disabled);
-    final isPressed = states.contains(WidgetState.pressed);
+    final disabled = states.contains(WidgetState.disabled);
+    final pressed = states.contains(WidgetState.pressed);
 
     switch (type) {
       case AppButtonType.primary:
-        if (isDisabled) return AppColors.neutral.c200;
-        if (isPressed) return AppColors.primary.c700;
+        if (disabled) return AppColors.neutral.c200;
+        if (pressed) return AppColors.primary.c700;
         return AppColors.primary.c500;
 
       case AppButtonType.secondary:
-        if (isDisabled) return AppColors.secondary.c100;
-        if (isPressed) return AppColors.secondary.c700;
+        if (disabled) return AppColors.secondary.c100;
+        if (pressed) return AppColors.secondary.c700;
         return AppColors.secondary.c500;
 
       case AppButtonType.success:
-        if (isDisabled) return AppColors.neutral.c200;
-        if (isPressed) return AppColors.success.c700;
+        if (disabled) return AppColors.neutral.c200;
+        if (pressed) return AppColors.success.c700;
         return AppColors.success.c500;
 
       case AppButtonType.warning:
-        if (isDisabled) return AppColors.neutral.c200;
-        if (isPressed) return AppColors.warning.c700;
+        if (disabled) return AppColors.neutral.c200;
+        if (pressed) return AppColors.warning.c700;
         return AppColors.warning.c500;
 
       case AppButtonType.error:
-        if (isDisabled) return AppColors.neutral.c200;
-        if (isPressed) return AppColors.error.c700;
+        if (disabled) return AppColors.neutral.c200;
+        if (pressed) return AppColors.error.c700;
         return AppColors.error.c500;
     }
   }
 
   Color _foregroundColor(Set<WidgetState> states) {
-    final isDisabled = states.contains(WidgetState.disabled);
+    if (states.contains(WidgetState.disabled)) {
+      return AppColors.neutral.c400;
+    }
 
+    return Colors.white;
+  }
+
+  Color get _loadingColor {
     if (isDisabled) {
       return AppColors.neutral.c400;
     }
@@ -136,29 +141,31 @@ class AppButton extends StatelessWidget {
     return Colors.white;
   }
 
-  double get _buttonHeight {
-    switch (size) {
-      case AppButtonSize.small:
-        return 40;
+  double get _buttonWidth {
+    switch (type) {
+      case AppButtonType.primary:
+      case AppButtonType.secondary:
+        return 200;
 
-      case AppButtonSize.medium:
-        return 48;
-
-      case AppButtonSize.large:
-        return 56;
+      case AppButtonType.success:
+      case AppButtonType.warning:
+      case AppButtonType.error:
+        return 100;
     }
   }
 
+  double get _buttonHeight => 36;
+
   TextStyle get _textStyle {
-    switch (size) {
-      case AppButtonSize.small:
+    switch (type) {
+      case AppButtonType.primary:
+      case AppButtonType.secondary:
         return AppTypography.labelMedium;
 
-      case AppButtonSize.medium:
-        return AppTypography.labelLarge;
-
-      case AppButtonSize.large:
-        return AppTypography.titleSmall;
+      case AppButtonType.success:
+      case AppButtonType.warning:
+      case AppButtonType.error:
+        return AppTypography.labelSmall;
     }
   }
 }
