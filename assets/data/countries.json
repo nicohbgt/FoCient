@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Malaysia",
+    "code": "+60",
+    "iso": "MY",
+    "flag": "assets/flags/my.png"
+  },
+  {
+    "name": "Australia",
+    "code": "+61",
+    "iso": "AU",
+    "flag": "assets/flags/au.png"
+  },
+  {
+    "name": "Indonesia",
+    "code": "+62",
+    "iso": "ID",
+    "flag": "assets/flags/id.png"
+  },
+  {
+    "name": "Philippines",
+    "code": "+63",
+    "iso": "PH",
+    "flag": "assets/flags/ph.png"
+  },
+  {
+    "name": "New Zealand",
+    "code": "+64",
+    "iso": "NZ",
+    "flag": "assets/flags/nz.png"
+  }
+]
