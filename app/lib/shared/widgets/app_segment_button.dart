@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppSegmentButton extends StatelessWidget {
   const AppSegmentButton({
     super.key,
