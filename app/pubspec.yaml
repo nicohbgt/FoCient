@@ -1,6 +1,6 @@
 name: focient
 description: AI-powered productivity application.
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -22,5 +22,45 @@ dependencies:
   # Date & Time
   intl: ^0.20.2
 
+  # SVG
+  flutter_svg: ^2.2.1
+
+  # Local Storage
+  shared_preferences: ^2.5.3
+
+  # UUID
+  uuid: ^4.5.1
+
+  # JSON Annotation (optional)
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+  build_runner: ^2.6.0
+  json_serializable: ^6.11.1
+
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/data/
+    - assets/flags/
+    - assets/icons/
+    - assets/images/
+    - assets/illustrations/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
