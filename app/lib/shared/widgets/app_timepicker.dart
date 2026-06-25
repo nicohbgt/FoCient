@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'app_time_input.dart';
-import 'app_segment_button.dart';
-import 'app_am_pm_toggle.dart';
-import 'app_timezone_dropdown.dart';
+import 'time picker/app_time_input.dart';
+import 'time picker/app_segment_button.dart';
+import 'time picker/app_am_pm_toggle.dart';
+import 'time picker/app_timezone_dropdown.dart';
 
 class AppTimePicker extends StatelessWidget {
   const AppTimePicker({
