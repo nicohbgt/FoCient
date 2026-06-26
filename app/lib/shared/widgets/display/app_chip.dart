@@ -74,7 +74,7 @@ class AppChip extends StatelessWidget {
             ],
             Text(
               label,
-              style: AppTypography.label.labelMedium.copyWith(
+              style: AppTypography.labelMedium.copyWith(
                 color: _textColor,
               ),
             ),
