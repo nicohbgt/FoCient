@@ -40,7 +40,7 @@ class AppEmptyState extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: AppTypography.title.titleLarge,
+              style: AppTypography.titleLarge,
             ),
             const SizedBox(
               height: AppSpacing.s8,
@@ -48,7 +48,7 @@ class AppEmptyState extends StatelessWidget {
             Text(
               description,
               textAlign: TextAlign.center,
-              style: AppTypography.body.bodyMedium.copyWith(
+              style: AppTypography.bodyMedium.copyWith(
                 color: AppColors.neutral.c500,
               ),
             ),

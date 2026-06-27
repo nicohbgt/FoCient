@@ -39,10 +39,10 @@ class AppSearchBar extends StatelessWidget {
         autofocus: autofocus,
         onChanged: onChanged,
         onSubmitted: onSubmitted,
-        style: AppTypography.body.bodyMedium,
+        style: AppTypography.bodyMedium,
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: AppTypography.body.bodyMedium.copyWith(
+          hintStyle: AppTypography.bodyMedium.copyWith(
             color: AppColors.neutral.c400,
           ),
           prefixIcon: Icon(

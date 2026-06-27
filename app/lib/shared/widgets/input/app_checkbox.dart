@@ -59,7 +59,7 @@ class AppCheckbox extends StatelessWidget {
                     children: [
                       Text(
                         label!,
-                        style: AppTypography.body.bodyMedium.copyWith(
+                        style: AppTypography.bodyMedium.copyWith(
                           color: disabled
                               ? AppColors.neutral.c400
                               : AppColors.neutral.c900,
@@ -71,7 +71,7 @@ class AppCheckbox extends StatelessWidget {
                         ),
                         Text(
                           description!,
-                          style: AppTypography.body.bodySmall.copyWith(
+                          style: AppTypography.bodySmall.copyWith(
                             color: AppColors.neutral.c500,
                           ),
                         ),

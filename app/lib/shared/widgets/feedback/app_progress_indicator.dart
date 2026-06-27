@@ -58,13 +58,13 @@ class AppProgressIndicator extends StatelessWidget {
                 Expanded(
                   child: Text(
                     label!,
-                    style: AppTypography.body.bodyMedium,
+                    style: AppTypography.bodyMedium,
                   ),
                 ),
               if (showPercentage)
                 Text(
                   '${(progress * 100).round()}%',
-                  style: AppTypography.label.labelMedium.copyWith(
+                  style: AppTypography.labelMedium.copyWith(
                     color: AppColors.neutral.c600,
                   ),
                 ),

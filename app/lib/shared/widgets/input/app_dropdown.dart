@@ -45,7 +45,7 @@ class AppDropdown<T> extends StatelessWidget {
         if (label != null) ...[
           RichText(
             text: TextSpan(
-              style: AppTypography.label.labelMedium.copyWith(
+              style: AppTypography.labelMedium.copyWith(
                 color: AppColors.neutral.c900,
               ),
               children: [
@@ -99,10 +99,10 @@ class AppDropdown<T> extends StatelessWidget {
                   child: Text(
                     value == null ? hint : itemLabelBuilder(value as T),
                     style: value == null
-                        ? AppTypography.body.bodyMedium.copyWith(
+                        ? AppTypography.bodyMedium.copyWith(
                             color: AppColors.neutral.c400,
                           )
-                        : AppTypography.body.bodyMedium,
+                        : AppTypography.bodyMedium,
                   ),
                 ),
                 Icon(
@@ -119,7 +119,7 @@ class AppDropdown<T> extends StatelessWidget {
           ),
           Text(
             errorText!,
-            style: AppTypography.label.labelSmall.copyWith(
+            style: AppTypography.labelSmall.copyWith(
               color: AppColors.error.c500,
             ),
           ),

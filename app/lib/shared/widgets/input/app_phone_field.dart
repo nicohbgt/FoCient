@@ -15,7 +15,6 @@ class AppPhoneField extends StatelessWidget {
     required this.dialCode,
     required this.flag,
     required this.onCountryTap,
-
     this.label,
     this.hint = 'Phone Number',
     this.errorText,
@@ -39,30 +38,22 @@ class AppPhoneField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment:
-          CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         if (label != null) ...[
           Text(
             label!,
-            style:
-                AppTypography.label.labelMedium,
+            style: AppTypography.labelMedium,
           ),
-
           const SizedBox(
             height: AppSpacing.s8,
           ),
         ],
-
         Container(
           height: 48,
           decoration: BoxDecoration(
-            color: enabled
-                ? AppColors.neutral.c0
-                : AppColors.neutral.c100,
-            borderRadius:
-                BorderRadius.circular(
+            color: enabled ? AppColors.neutral.c0 : AppColors.neutral.c100,
+            borderRadius: BorderRadius.circular(
               AppRadius.r12,
             ),
             border: Border.all(
@@ -73,91 +64,61 @@ class AppPhoneField extends StatelessWidget {
           ),
           child: Row(
             children: [
-
               InkWell(
-                onTap: enabled
-                    ? onCountryTap
-                    : null,
-                borderRadius:
-                    BorderRadius.circular(
+                onTap: enabled ? onCountryTap : null,
+                borderRadius: BorderRadius.circular(
                   AppRadius.r12,
                 ),
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(
-                    horizontal:
-                        AppSpacing.s16,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.s16,
                   ),
                   child: Row(
                     children: [
-
                       Text(
                         flag,
-                        style:
-                            const TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                         ),
                       ),
-
                       const SizedBox(
-                        width:
-                            AppSpacing.s8,
+                        width: AppSpacing.s8,
                       ),
-
                       Text(
                         dialCode,
-                        style: AppTypography
-                            .body
-                            .bodyMedium,
+                        style: AppTypography.bodyMedium,
                       ),
-
                       const SizedBox(
-                        width:
-                            AppSpacing.s4,
+                        width: AppSpacing.s4,
                       ),
-
                       Icon(
-                        Icons
-                            .keyboard_arrow_down,
+                        Icons.keyboard_arrow_down,
                         size: 20,
-                        color: AppColors
-                            .neutral
-                            .c500,
+                        color: AppColors.neutral.c500,
                       ),
                     ],
                   ),
                 ),
               ),
-
               const SizedBox(
                 height: 24,
                 child: AppDivider(
-                  direction:
-                      AppDividerDirection
-                          .vertical,
+                  direction: AppDividerDirection.vertical,
                   spacing: 0,
                 ),
               ),
-
               Expanded(
                 child: TextField(
                   controller: controller,
                   enabled: enabled,
-                  keyboardType:
-                      TextInputType.phone,
-                  style: AppTypography
-                      .body
-                      .bodyMedium,
-                  decoration:
-                      InputDecoration(
+                  keyboardType: TextInputType.phone,
+                  style: AppTypography.bodyMedium,
+                  decoration: InputDecoration(
                     hintText: hint,
-                    border:
-                        InputBorder.none,
+                    border: InputBorder.none,
                     isDense: true,
-                    contentPadding:
-                        const EdgeInsets.symmetric(
-                      horizontal:
-                          AppSpacing.s16,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: AppSpacing.s16,
                     ),
                   ),
                 ),
@@ -165,25 +126,18 @@ class AppPhoneField extends StatelessWidget {
             ],
           ),
         ),
-
         if (errorText != null) ...[
           const SizedBox(
             height: AppSpacing.s4,
           ),
-
           Text(
             errorText!,
-            style: AppTypography
-                .label
-                .labelSmall
-                .copyWith(
-                  color:
-                      AppColors.error.c500,
-                ),
+            style: AppTypography.labelSmall.copyWith(
+              color: AppColors.error.c500,
+            ),
           ),
         ],
       ],
     );
   }
-}
 }

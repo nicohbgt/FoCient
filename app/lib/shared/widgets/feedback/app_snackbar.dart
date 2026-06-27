@@ -46,7 +46,7 @@ class AppSnackbar {
               Expanded(
                 child: Text(
                   message,
-                  style: AppTypography.body.bodyMedium.copyWith(
+                  style: AppTypography.bodyMedium.copyWith(
                     color: Colors.white,
                   ),
                 ),

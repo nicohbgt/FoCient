@@ -56,7 +56,7 @@ class AppRadioButton<T> extends StatelessWidget {
                     children: [
                       Text(
                         label!,
-                        style: AppTypography.body.bodyMedium.copyWith(
+                        style: AppTypography.bodyMedium.copyWith(
                           color: enabled
                               ? AppColors.neutral.c900
                               : AppColors.neutral.c400,
@@ -68,7 +68,7 @@ class AppRadioButton<T> extends StatelessWidget {
                         ),
                         Text(
                           description!,
-                          style: AppTypography.body.bodySmall.copyWith(
+                          style: AppTypography.bodySmall.copyWith(
                             color: AppColors.neutral.c500,
                           ),
                         ),
