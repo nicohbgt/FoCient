@@ -1,10 +1,13 @@
-import 'package:flutter/services.dart';
 import 'dart:convert';
+
+import 'package:flutter/services.dart';
+
+import '../../shared/models/country_phone.dart';
 
 class CountryService {
   static Future<List<CountryPhone>> load() async {
     final jsonString = await rootBundle.loadString(
-      'assets/data/countries.json',
+      'lib/app/assets/data/countries.json',
     );
 
     final jsonData = jsonDecode(jsonString);

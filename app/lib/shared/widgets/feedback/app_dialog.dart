@@ -1,134 +1,82 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_radius.dart';
 import '../../../app/theme/app_spacing.dart';
 import '../../../app/theme/app_typography.dart';
 
-class AppBottomSheet extends StatelessWidget {
-  const AppBottomSheet({
-    super.key,
+/// A design-system dialog for focused content and optional actions.
+class AppDialog extends StatelessWidget {
+  const AppDialog({
     required this.child,
     this.title,
-    this.subtitle,
-    this.showDragHandle = true,
-    this.padding,
+    this.actions = const <Widget>[],
+    super.key,
   });
 
+  /// The main dialog content.
   final Widget child;
 
+  /// The optional dialog heading.
   final String? title;
-  final String? subtitle;
 
-  final bool showDragHandle;
-
-  final EdgeInsets? padding;
+  /// Actions displayed at the bottom of the dialog.
+  final List<Widget> actions;
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Container(
-        padding: padding ??
-            const EdgeInsets.all(
-              AppSpacing.s24,
-            ),
-        decoration: BoxDecoration(
-          color: AppColors.neutral.c0,
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(
-              AppRadius.r16,
-            ),
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment:
-              CrossAxisAlignment.start,
-          children: [
+    final colorScheme = Theme.of(context).colorScheme;
 
-            if (showDragHandle)
-              Center(
-                child: Container(
-                  width: 48,
-                  height: 4,
-                  margin: const EdgeInsets.only(
-                    bottom: AppSpacing.s20,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.neutral.c300,
-                    borderRadius:
-                        BorderRadius.circular(
-                      AppRadius.full,
-                    ),
-                  ),
-                ),
-              ),
-
-            if (title != null) ...[
-              Text(
-                title!,
-                style: AppTypography
-                    .headline
-                    .headlineSmall,
-              ),
-
-              const SizedBox(
-                height: AppSpacing.s8,
-              ),
-            ],
-
-            if (subtitle != null) ...[
-              Text(
-                subtitle!,
-                style: AppTypography
-                    .body
-                    .bodyMedium
-                    .copyWith(
-                      color: AppColors
-                          .neutral
-                          .c500,
-                    ),
-              ),
-
-              const SizedBox(
-                height: AppSpacing.s20,
-              ),
-            ],
-
-            child,
-          ],
-        ),
+    return AlertDialog(
+      backgroundColor: colorScheme.surface,
+      surfaceTintColor: colorScheme.surfaceTint,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(AppRadius.r16)),
       ),
+      title: title == null
+          ? null
+          : Text(
+              title!,
+              style: AppTypography.headlineSmall.copyWith(
+                color: colorScheme.onSurface,
+              ),
+            ),
+      content: DefaultTextStyle.merge(
+        style: AppTypography.bodyMedium.copyWith(
+          color: colorScheme.onSurfaceVariant,
+        ),
+        child: child,
+      ),
+      actionsPadding: const EdgeInsets.fromLTRB(
+        AppSpacing.s24,
+        AppSpacing.s8,
+        AppSpacing.s24,
+        AppSpacing.s24,
+      ),
+      actions: actions,
     );
   }
 
+  /// Presents an [AppDialog] and completes with the value passed to
+  /// `Navigator.pop`.
   static Future<T?> show<T>({
     required BuildContext context,
     required Widget child,
     String? title,
-    String? subtitle,
-    bool isDismissible = true,
-    bool enableDrag = true,
-    bool isScrollControlled = true,
-    bool showDragHandle = true,
+    List<Widget> actions = const <Widget>[],
+    bool barrierDismissible = true,
+    bool useRootNavigator = true,
+    bool? requestFocus,
   }) {
-    return showModalBottomSheet<T>(
+    return showDialog<T>(
       context: context,
-      isDismissible: isDismissible,
-      enableDrag: enableDrag,
-      isScrollControlled:
-          isScrollControlled,
-      backgroundColor: Colors.transparent,
-      builder: (_) {
-        return AppBottomSheet(
-          title: title,
-          subtitle: subtitle,
-          showDragHandle:
-              showDragHandle,
-          child: child,
-        );
-      },
+      barrierDismissible: barrierDismissible,
+      useRootNavigator: useRootNavigator,
+      requestFocus: requestFocus,
+      builder: (_) => AppDialog(
+        title: title,
+        actions: actions,
+        child: child,
+      ),
     );
   }
 }
