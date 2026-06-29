@@ -56,14 +56,14 @@ class WorkStyleCard extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: AppTypography.title.titleMedium,
+                    style: AppTypography.titleMedium,
                   ),
                   const SizedBox(
                     height: AppSpacing.s8,
                   ),
                   Text(
                     description,
-                    style: AppTypography.body.bodyMedium.copyWith(
+                    style: AppTypography.bodyMedium.copyWith(
                       color: AppColors.neutral.c500,
                     ),
                   ),
