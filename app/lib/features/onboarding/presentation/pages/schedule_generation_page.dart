@@ -84,7 +84,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
               Text(
                 "Generating Your Schedule",
                 textAlign: TextAlign.center,
-                style: AppTypography.headline.headlineMedium,
+                style: AppTypography.headlineMedium,
               ),
               const SizedBox(
                 height: AppSpacing.s12,
@@ -92,7 +92,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
               Text(
                 "FoCient is creating a personalized schedule based on your goals and preferences.",
                 textAlign: TextAlign.center,
-                style: AppTypography.body.bodyMedium.copyWith(
+                style: AppTypography.bodyMedium.copyWith(
                   color: AppColors.neutral.c500,
                 ),
               ),
@@ -108,7 +108,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
               ),
               Text(
                 status,
-                style: AppTypography.label.labelMedium,
+                style: AppTypography.labelMedium,
               ),
               const Spacer(),
               Container(
@@ -132,7 +132,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
                     Expanded(
                       child: Text(
                         "Tip: Breaking large goals into smaller tasks increases the likelihood of completion.",
-                        style: AppTypography.body.bodySmall,
+                        style: AppTypography.bodySmall,
                       ),
                     ),
                   ],

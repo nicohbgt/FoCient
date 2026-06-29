@@ -22,7 +22,7 @@ class WeekdayChip extends StatelessWidget {
     return FilterChip(
       label: Text(
         label,
-        style: AppTypography.label.labelMedium,
+        style: AppTypography.labelMedium,
       ),
       selected: selected,
       onSelected: (_) => onTap(),
@@ -37,7 +37,7 @@ class WeekdayChip extends StatelessWidget {
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
-          AppRadius.r999,
+          AppRadius.full,
         ),
       ),
     );
