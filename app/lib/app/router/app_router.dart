@@ -7,15 +7,15 @@ import '../../features/auth/presentation/pages/sign_up_page.dart';
 import '../../features/auth/presentation/pages/forgot_password_page.dart';
 import '../../features/auth/presentation/pages/reset_password_page.dart';
 import '../../features/auth/presentation/pages/reset_success_page.dart';
+import '../../features/auth/presentation/pages/welcome_page.dart';
 
-import '../../features/onboarding/presentation/pages/welcome_page.dart';
 import '../../features/onboarding/presentation/pages/setup_goal_page.dart';
 import '../../features/onboarding/presentation/pages/goal_form_page.dart';
 import '../../features/onboarding/presentation/pages/choose_workstyle_page.dart';
 import '../../features/onboarding/presentation/pages/setup_time_allocation_page.dart';
 import '../../features/onboarding/presentation/pages/schedule_generation_page.dart';
 
-import '../../features/dashboard/presentation/pages/dashboard_page.dart';
+import '../../features/dashboard/presentation/pages/dashboard_home_page.dart';
 
 class AppRouter {
   AppRouter._();
