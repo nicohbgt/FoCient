@@ -69,7 +69,7 @@ class AppRouter {
       ),
       GoRoute(
         path: AppRoutes.dashboard,
-        builder: (context, state) => const DashboardPage(),
+        builder: (context, state) => const DashboardHomePage(),
       ),
     ],
   );

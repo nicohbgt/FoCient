@@ -46,7 +46,11 @@ class DashboardHomePage extends StatelessWidget {
           const SizedBox(
             height: AppSpacing.s32,
           ),
-          DashboardQuickAction(),
+          DashboardQuickAction(
+            onTap: () {
+              // TODO: Navigate to Create Task Page
+            },
+          ),
           const SizedBox(
             height: AppSpacing.s32,
           ),

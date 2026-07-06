@@ -8,20 +8,10 @@ import '../../../../app/theme/app_typography.dart';
 class DashboardQuickAction extends StatelessWidget {
   const DashboardQuickAction({
     super.key,
-    required this.icon,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-    this.backgroundColor,
+    this.onTap,
   });
 
-  final IconData icon;
-  final String title;
-  final String subtitle;
-
-  final VoidCallback onTap;
-
-  final Color? backgroundColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +25,7 @@ class DashboardQuickAction extends StatelessWidget {
           AppSpacing.s16,
         ),
         decoration: BoxDecoration(
-          color: backgroundColor ?? AppColors.primary.c50,
+          color: AppColors.primary.c50,
           borderRadius: BorderRadius.circular(
             AppRadius.r16,
           ),
@@ -54,8 +44,8 @@ class DashboardQuickAction extends StatelessWidget {
                   AppRadius.r12,
                 ),
               ),
-              child: Icon(
-                icon,
+              child: const Icon(
+                Icons.add_task_outlined,
                 color: Colors.white,
               ),
             ),
@@ -67,14 +57,14 @@ class DashboardQuickAction extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    'Add Task',
                     style: AppTypography.titleMedium,
                   ),
                   const SizedBox(
                     height: AppSpacing.s4,
                   ),
                   Text(
-                    subtitle,
+                    'Create a new task',
                     style: AppTypography.bodySmall.copyWith(
                       color: AppColors.neutral.c500,
                     ),
