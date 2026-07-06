@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/dashboard_empty_state.dart';
+import '../../../../app/theme/app_spacing.dart';
+
+import '../widgets/dashboard_scaffold.dart';
 import '../widgets/dashboard_header.dart';
 import '../widgets/dashboard_progress_card.dart';
+import '../widgets/dashboard_current_focus.dart';
+import '../widgets/dashboard_priority_section.dart';
 import '../widgets/dashboard_quick_action.dart';
-import '../widgets/dashboard_scaffold.dart';
-import '../widgets/dashboard_section_title.dart';
-import '../widgets/dashboard_task_card.dart';
 
-import '../../../../app/theme/app_spacing.dart';
+import '../../data/dashboard_dummy.dart';
 
 class DashboardHomePage extends StatelessWidget {
   const DashboardHomePage({
@@ -20,64 +21,38 @@ class DashboardHomePage extends StatelessWidget {
     return DashboardScaffold(
       currentIndex: 0,
       onDestinationSelected: (index) {},
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(
-          Icons.add,
-        ),
-      ),
       body: ListView(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(
+          top: AppSpacing.s24,
+          bottom: AppSpacing.s32,
+        ),
         children: [
-          const SizedBox(
-            height: AppSpacing.s24,
-          ),
-          const DashboardHeader(
-            userName: "John Doe",
+          DashboardHeader(
+            userName: DashboardDummy.userName,
+            message: DashboardDummy.todayMessage,
           ),
           const SizedBox(
             height: AppSpacing.s24,
           ),
-          const DashboardProgressCard(
-            completedTasks: 2,
-            totalTasks: 5,
+          DashboardProgressCard(
+            completedTasks: DashboardDummy.completedTasks,
+            totalTasks: DashboardDummy.totalTasks,
           ),
           const SizedBox(
             height: AppSpacing.s24,
           ),
-          DashboardQuickAction(
-            icon: Icons.add_task,
-            title: "Add Task",
-            subtitle: "Create your next task",
-            onTap: () {},
-          ),
+          DashboardCurrentFocus(),
           const SizedBox(
             height: AppSpacing.s32,
           ),
-          const DashboardSectionTitle(
-            title: "Today's Tasks",
-          ),
+          DashboardQuickAction(),
           const SizedBox(
-            height: AppSpacing.s16,
+            height: AppSpacing.s32,
           ),
-          DashboardTaskCard(
-            title: "Complete Flutter Dashboard",
-            category: "Study",
-            startTime: "09:00",
-            endTime: "11:00",
-            priority: TaskPriority.high,
-            onTap: () {},
-          ),
+          DashboardPrioritySection(),
           const SizedBox(
-            height: AppSpacing.s12,
-          ),
-          DashboardTaskCard(
-            title: "Workout",
-            category: "Health",
-            startTime: "18:00",
-            endTime: "19:00",
-            priority: TaskPriority.low,
-            isCompleted: true,
-            onTap: () {},
+            height: AppSpacing.s32,
           ),
         ],
       ),
