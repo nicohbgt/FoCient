@@ -5,6 +5,7 @@ import '../../../../app/router/app_routes.dart';
 import '../../../../app/theme/app_spacing.dart';
 
 import '../../../../shared/widgets/input/app_dropdown.dart';
+import '../../../../shared/widgets/input/app_text_field.dart';
 import '../../../../shared/widgets/input/app_timepicker.dart';
 
 import '../widgets/onboarding_header.dart';
@@ -32,6 +33,18 @@ class _SetupTimeAllocationPageState extends State<SetupTimeAllocationPage> {
 
   String? breakDuration = '30 Minutes';
   String? timezone = 'UTC+07:00 (Jakarta)';
+
+  final TextEditingController _startTimeController =
+      TextEditingController(text: '08:00');
+  final TextEditingController _endTimeController =
+      TextEditingController(text: '17:00');
+
+  @override
+  void dispose() {
+    _startTimeController.dispose();
+    _endTimeController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +74,66 @@ class _SetupTimeAllocationPageState extends State<SetupTimeAllocationPage> {
               },
             ),
             const SizedBox(height: AppSpacing.s24),
-            AppTimePickerField(
+            AppTextField(
+              controller: _startTimeController,
               label: 'Start Time',
-              hint: '08:00',
+              hintText: '08:00',
+              readOnly: true,
+              suffixIcon: const Icon(Icons.access_time),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (_) => AppTimePicker(
+                    hour: 8,
+                    minute: 0,
+                    is24Hour: true,
+                    isAm: true,
+                    timezone: timezone,
+                    onCancel: () => Navigator.pop(context),
+                    onConfirm: () => Navigator.pop(context),
+                    onHourTap: () {},
+                    onMinuteTap: () {},
+                    onTimezoneChanged: (value) {
+                      setState(() {
+                        timezone = value;
+                      });
+                    },
+                    onToggleFormat: (_) {},
+                    onToggleAmPm: (_) {},
+                  ),
+                );
+              },
             ),
             const SizedBox(height: AppSpacing.s16),
-            AppTimePickerField(
+            AppTextField(
+              controller: _endTimeController,
               label: 'End Time',
-              hint: '17:00',
+              hintText: '17:00',
+              readOnly: true,
+              suffixIcon: const Icon(Icons.access_time),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (_) => AppTimePicker(
+                    hour: 17,
+                    minute: 0,
+                    is24Hour: true,
+                    isAm: false,
+                    timezone: timezone,
+                    onCancel: () => Navigator.pop(context),
+                    onConfirm: () => Navigator.pop(context),
+                    onHourTap: () {},
+                    onMinuteTap: () {},
+                    onTimezoneChanged: (value) {
+                      setState(() {
+                        timezone = value;
+                      });
+                    },
+                    onToggleFormat: (_) {},
+                    onToggleAmPm: (_) {},
+                  ),
+                );
+              },
             ),
             const SizedBox(height: AppSpacing.s16),
             AppDropdown<String>(
