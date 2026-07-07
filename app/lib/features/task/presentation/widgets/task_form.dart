@@ -10,10 +10,20 @@ class TaskForm extends StatelessWidget {
     super.key,
     required this.titleController,
     required this.descriptionController,
+    required this.selectedCategory,
+    required this.selectedPriority,
+    required this.onCategoryChanged,
+    required this.onPriorityChanged,
   });
 
   final TextEditingController titleController;
   final TextEditingController descriptionController;
+
+  final String? selectedCategory;
+  final String? selectedPriority;
+
+  final ValueChanged<String?> onCategoryChanged;
+  final ValueChanged<String?> onPriorityChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +53,9 @@ class TaskForm extends StatelessWidget {
             'Medium',
             'Low',
           ],
-          value: null,
+          value: selectedPriority,
           itemLabelBuilder: (value) => value,
-          onSelected: (_) {},
+          onSelected: onPriorityChanged,
         ),
         const SizedBox(
           height: AppSpacing.s20,
@@ -60,9 +70,9 @@ class TaskForm extends StatelessWidget {
             'Health',
             'Learning',
           ],
-          value: null,
+          value: selectedCategory,
           itemLabelBuilder: (value) => value,
-          onSelected: (_) {},
+          onSelected: onCategoryChanged,
         ),
       ],
     );

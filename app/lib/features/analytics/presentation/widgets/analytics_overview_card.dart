@@ -24,7 +24,7 @@ class AnalyticsOverviewCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primary.c500,
         borderRadius: BorderRadius.circular(
-          AppRadius.r20,
+          AppRadius.r12,
         ),
       ),
       child: Column(

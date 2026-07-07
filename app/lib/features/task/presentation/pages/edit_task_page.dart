@@ -102,8 +102,26 @@ class _EditTaskPageState extends State<EditTaskPage> {
               onStartTimeTap: () {
                 // TODO: Open Time Picker
               },
-              onEndTimeTap: () {
-                // TODO: Open Time Picker
+              onEndTimeTap: () async {
+                final selectedTime = await showTimePicker(
+                  context: context,
+                  initialTime: TimeOfDay.fromDateTime(widget.task.endTime),
+                  builder: (context, child) {
+                    return MediaQuery(
+                      data: MediaQuery.of(context).copyWith(
+                        alwaysUse24HourFormat: true,
+                      ),
+                      child: child!,
+                    );
+                  },
+                );
+
+                if (selectedTime == null) return;
+
+                final hour = selectedTime.hour.toString().padLeft(2, '0');
+                final minute = selectedTime.minute.toString().padLeft(2, '0');
+
+                _endTimeController.text = '$hour:$minute';
               },
               onReminderTap: () {
                 // TODO: Open Reminder Picker
