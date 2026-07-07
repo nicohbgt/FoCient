@@ -17,6 +17,13 @@ import '../../features/onboarding/presentation/pages/schedule_generation_page.da
 
 import '../../features/dashboard/presentation/pages/dashboard_home_page.dart';
 
+import '../../features/task/presentation/pages/task_list_page.dart';
+import '../../features/task/presentation/pages/create_task_page.dart';
+import '../../features/task/presentation/pages/edit_task_page.dart';
+import '../../features/task/presentation/pages/task_detail_page.dart';
+
+import '../../features/analytics/presentation/pages/analytics_page.dart';
+
 class AppRouter {
   AppRouter._();
 

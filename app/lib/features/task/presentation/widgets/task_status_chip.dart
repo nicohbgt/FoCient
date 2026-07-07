@@ -20,7 +20,7 @@ class TaskStatusChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: AppSpacing.s12,
-        vertical: AppSpacing.s6,
+        vertical: AppSpacing.s8,
       ),
       decoration: BoxDecoration(
         color: _backgroundColor,
@@ -37,7 +37,7 @@ class TaskStatusChip extends StatelessWidget {
             color: _foregroundColor,
           ),
           const SizedBox(
-            width: AppSpacing.s6,
+            width: AppSpacing.s8,
           ),
           Text(
             _label,
@@ -85,7 +85,7 @@ class TaskStatusChip extends StatelessWidget {
         return AppColors.primary.c50;
 
       case TaskStatus.completed:
-        return AppColors.success.c50;
+        return AppColors.success.c100;
     }
   }
 
@@ -98,7 +98,7 @@ class TaskStatusChip extends StatelessWidget {
         return AppColors.primary.c600;
 
       case TaskStatus.completed:
-        return AppColors.success.c600;
+        return AppColors.success.c700;
     }
   }
 }

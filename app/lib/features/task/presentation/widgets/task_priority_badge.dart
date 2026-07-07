@@ -20,7 +20,7 @@ class TaskPriorityBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: AppSpacing.s12,
-        vertical: AppSpacing.s6,
+        vertical: AppSpacing.s8,
       ),
       decoration: BoxDecoration(
         color: _backgroundColor,
@@ -37,7 +37,7 @@ class TaskPriorityBadge extends StatelessWidget {
             color: _foregroundColor,
           ),
           const SizedBox(
-            width: AppSpacing.s6,
+            width: AppSpacing.s8,
           ),
           Text(
             _label,
@@ -75,22 +75,22 @@ class TaskPriorityBadge extends StatelessWidget {
   Color get _backgroundColor {
     switch (priority) {
       case TaskPriority.low:
-        return AppColors.success.c50;
+        return AppColors.success.c100;
       case TaskPriority.medium:
-        return AppColors.warning.c50;
+        return AppColors.warning.c100;
       case TaskPriority.high:
-        return AppColors.error.c50;
+        return AppColors.error.c100;
     }
   }
 
   Color get _foregroundColor {
     switch (priority) {
       case TaskPriority.low:
-        return AppColors.success.c600;
+        return AppColors.success.c700;
       case TaskPriority.medium:
-        return AppColors.warning.c600;
+        return AppColors.warning.c700;
       case TaskPriority.high:
-        return AppColors.error.c600;
+        return AppColors.error.c700;
     }
   }
 }
