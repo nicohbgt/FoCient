@@ -17,6 +17,8 @@ import '../../features/onboarding/presentation/pages/schedule_generation_page.da
 
 import '../../features/dashboard/presentation/pages/dashboard_home_page.dart';
 
+import '../../features/task/domain/entities/task.dart';
+
 import '../../features/task/presentation/pages/task_list_page.dart';
 import '../../features/task/presentation/pages/create_task_page.dart';
 import '../../features/task/presentation/pages/edit_task_page.dart';
@@ -30,6 +32,7 @@ class AppRouter {
   static final router = GoRouter(
     initialLocation: AppRoutes.welcome,
     routes: [
+      // Authentication
       GoRoute(
         path: AppRoutes.welcome,
         builder: (context, state) => const WelcomePage(),
@@ -54,6 +57,8 @@ class AppRouter {
         path: AppRoutes.resetSuccess,
         builder: (context, state) => const ResetSuccessPage(),
       ),
+
+      // Onboarding
       GoRoute(
         path: AppRoutes.setupGoals,
         builder: (context, state) => const SetupGoalsPage(),
@@ -74,9 +79,47 @@ class AppRouter {
         path: AppRoutes.scheduleGeneration,
         builder: (context, state) => const ScheduleGenerationPage(),
       ),
+
+      // Dashboard
       GoRoute(
         path: AppRoutes.dashboard,
         builder: (context, state) => const DashboardHomePage(),
+      ),
+
+      // Tasks
+      GoRoute(
+        path: AppRoutes.taskList,
+        builder: (context, state) => const TaskListPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.createTask,
+        builder: (context, state) => const CreateTaskPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.taskDetail,
+        builder: (context, state) {
+          final task = state.extra as Task;
+
+          return TaskDetailPage(
+            task: task,
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.editTask,
+        builder: (context, state) {
+          final task = state.extra as Task;
+
+          return EditTaskPage(
+            task: task,
+          );
+        },
+      ),
+
+      // Analytics
+      GoRoute(
+        path: AppRoutes.analytics,
+        builder: (context, state) => const AnalyticsPage(),
       ),
     ],
   );
