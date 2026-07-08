@@ -82,10 +82,6 @@ class _EditTaskPageState extends State<EditTaskPage> {
               descriptionController: _descriptionController,
               selectedCategory: _selectedCategory,
               selectedPriority: _selectedPriority,
-              selectedDate: _selectedDate,
-              startTimeController: _startTimeController,
-              endTimeController: _endTimeController,
-              reminderController: _reminderController,
               onCategoryChanged: (value) {
                 setState(() {
                   _selectedCategory = value;
@@ -95,36 +91,6 @@ class _EditTaskPageState extends State<EditTaskPage> {
                 setState(() {
                   _selectedPriority = value;
                 });
-              },
-              onDateTap: () {
-                // TODO: Open Date Picker
-              },
-              onStartTimeTap: () {
-                // TODO: Open Time Picker
-              },
-              onEndTimeTap: () async {
-                final selectedTime = await showTimePicker(
-                  context: context,
-                  initialTime: TimeOfDay.fromDateTime(widget.task.endTime),
-                  builder: (context, child) {
-                    return MediaQuery(
-                      data: MediaQuery.of(context).copyWith(
-                        alwaysUse24HourFormat: true,
-                      ),
-                      child: child!,
-                    );
-                  },
-                );
-
-                if (selectedTime == null) return;
-
-                final hour = selectedTime.hour.toString().padLeft(2, '0');
-                final minute = selectedTime.minute.toString().padLeft(2, '0');
-
-                _endTimeController.text = '$hour:$minute';
-              },
-              onReminderTap: () {
-                // TODO: Open Reminder Picker
               },
             ),
             const SizedBox(
