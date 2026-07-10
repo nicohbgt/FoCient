@@ -53,7 +53,7 @@ class DashboardProgressCard extends StatelessWidget {
           ),
           Text(
             "$percentage%",
-            style: AppTypography.displaySmall.copyWith(
+            style: AppTypography.displayMedium.copyWith(
               color: Colors.white,
             ),
           ),
