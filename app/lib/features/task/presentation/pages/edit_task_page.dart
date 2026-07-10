@@ -27,7 +27,6 @@ class _EditTaskPageState extends State<EditTaskPage> {
 
   String? _selectedCategory;
   String? _selectedPriority;
-  DateTime? _selectedDate;
 
   @override
   void initState() {
@@ -57,7 +56,6 @@ class _EditTaskPageState extends State<EditTaskPage> {
 
     _selectedCategory = widget.task.category;
     _selectedPriority = _priorityToString(widget.task.priority);
-    _selectedDate = widget.task.date;
   }
 
   @override

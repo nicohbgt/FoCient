@@ -39,11 +39,17 @@ class AppRadioButton<T> extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Radio<T>(
-              value: value,
+            RadioGroup<T>(
               groupValue: groupValue,
-              onChanged: enabled ? onChanged : null,
-              activeColor: AppColors.primary.c500,
+              onChanged: enabled
+                  ? (v) {
+                      if (v != null) onChanged?.call(v);
+                    }
+                  : (v) {},
+              child: Radio<T>(
+                value: value,
+                activeColor: AppColors.primary.c500,
+              ),
             ),
             if (label != null)
               Expanded(
