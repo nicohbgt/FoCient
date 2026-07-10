@@ -7,19 +7,12 @@ class AppTypography {
 
   static const TextStyle displayLarge = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 48,
+    fontSize: 36,
     fontWeight: FontWeight.w700,
-    height: 56 / 48,
+    height: 44 / 36,
   );
 
   static const TextStyle displayMedium = TextStyle(
-    fontFamily: 'Inter',
-    fontSize: 40,
-    fontWeight: FontWeight.w700,
-    height: 48 / 40,
-  );
-
-  static const TextStyle displaySmall = TextStyle(
     fontFamily: 'Inter',
     fontSize: 32,
     fontWeight: FontWeight.w700,
@@ -55,7 +48,7 @@ class AppTypography {
     fontFamily: 'Inter',
     fontSize: 18,
     fontWeight: FontWeight.w600,
-    height: 28 / 18,
+    height: 26 / 18,
   );
 
   static const TextStyle titleMedium = TextStyle(
@@ -63,13 +56,6 @@ class AppTypography {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     height: 24 / 16,
-  );
-
-  static const TextStyle titleSmall = TextStyle(
-    fontFamily: 'Inter',
-    fontSize: 14,
-    fontWeight: FontWeight.w600,
-    height: 20 / 14,
   );
 
   // Body
@@ -85,14 +71,14 @@ class AppTypography {
     fontFamily: 'Inter',
     fontSize: 14,
     fontWeight: FontWeight.w400,
-    height: 20 / 14,
+    height: 22 / 14,
   );
 
   static const TextStyle bodySmall = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: FontWeight.w400,
-    height: 18 / 12,
+    height: 20 / 13,
   );
 
   // Label
