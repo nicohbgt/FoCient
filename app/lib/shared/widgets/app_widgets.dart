@@ -1,5 +1,5 @@
 export 'display/app_avatar.dart';
-export 'display/app_badge.dart';
+export 'badge/app_badge.dart';
 export 'feedback/app_bottom_sheet.dart';
 export 'app_button.dart';
 export 'display/app_card.dart';
