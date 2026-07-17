@@ -5,10 +5,10 @@ import '../../../../app/router/app_routes.dart';
 
 import '../../../../app/theme/app_spacing.dart';
 
-import '../../../../shared/widgets/app_button.dart';
-import '../../../../shared/widgets/input/app_checkbox.dart';
-import '../../../../shared/widgets/input/app_password_field.dart';
-import '../../../../shared/widgets/input/app_text_field.dart';
+import '../../../../shared/widgets/button/app_button.dart';
+import '../../../../shared/widgets/checkbox/app_checkbox.dart';
+import '../../../../shared/widgets/password field/app_password_field.dart';
+import '../../../../shared/widgets/text field/app_text_field.dart';
 
 import '../widgets/auth_footer.dart';
 import '../widgets/auth_header.dart';

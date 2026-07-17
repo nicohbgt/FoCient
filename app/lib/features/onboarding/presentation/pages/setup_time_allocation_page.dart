@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../app/router/app_routes.dart';
 import '../../../../app/theme/app_spacing.dart';
 
-import '../../../../shared/widgets/input/app_dropdown.dart';
-import '../../../../shared/widgets/input/app_text_field.dart';
-import '../../../../shared/widgets/input/app_timepicker.dart';
+import '../../../../shared/widgets/dropdown/app_dropdown.dart';
+import '../../../../shared/widgets/text field/app_text_field.dart';
+import '../../../../shared/widgets/time picker/app_time_picker_field.dart';
 
 import '../widgets/onboarding_header.dart';
 import '../widgets/onboarding_scaffold.dart';

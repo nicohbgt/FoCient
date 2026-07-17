@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/widgets/input/app_text_field.dart';
+import '../../../../shared/widgets/text field/app_text_field.dart';
 
 class TaskSearchBar extends StatelessWidget {
   const TaskSearchBar({

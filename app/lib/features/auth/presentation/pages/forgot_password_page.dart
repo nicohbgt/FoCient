@@ -5,8 +5,8 @@ import '../../../../app/router/app_routes.dart';
 
 import '../../../../app/theme/app_spacing.dart';
 
-import '../../../../shared/widgets/app_button.dart';
-import '../../../../shared/widgets/input/app_text_field.dart';
+import '../../../../shared/widgets/button/app_button.dart';
+import '../../../../shared/widgets/text field/app_text_field.dart';
 
 import '../widgets/auth_header.dart';
 import '../widgets/auth_footer.dart';

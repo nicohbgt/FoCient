@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/theme/app_spacing.dart';
 
-import '../../../../shared/widgets/input/app_dropdown.dart';
-import '../../../../shared/widgets/input/app_text_field.dart';
+import '../../../../shared/widgets/dropdown/app_dropdown.dart';
+import '../../../../shared/widgets/text field/app_text_field.dart';
 
 class TaskForm extends StatelessWidget {
   const TaskForm({

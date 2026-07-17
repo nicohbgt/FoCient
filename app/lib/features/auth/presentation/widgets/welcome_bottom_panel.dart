@@ -5,7 +5,7 @@ import '../../../../app/theme/app_radius.dart';
 import '../../../../app/theme/app_spacing.dart';
 import '../../../../app/theme/app_typography.dart';
 
-import '../../../../shared/widgets/app_button.dart';
+import '../../../../shared/widgets/button/app_button.dart';
 
 class WelcomeBottomPanel extends StatelessWidget {
   const WelcomeBottomPanel({

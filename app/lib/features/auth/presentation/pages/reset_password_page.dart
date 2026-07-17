@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../app/router/app_routes.dart';
 import '../../../../app/theme/app_spacing.dart';
 
-import '../../../../shared/widgets/app_button.dart';
-import '../../../../shared/widgets/input/app_password_field.dart';
+import '../../../../shared/widgets/button/app_button.dart';
+import '../../../../shared/widgets/password field/app_password_field.dart';
 
 import '../widgets/auth_header.dart';
 

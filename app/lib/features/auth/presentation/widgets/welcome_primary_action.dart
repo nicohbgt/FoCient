@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../app/router/app_routes.dart';
 
-import '../../../../shared/widgets/app_button.dart';
+import '../../../../shared/widgets/button/app_button.dart';
 
 class WelcomePrimaryAction extends StatelessWidget {
   const WelcomePrimaryAction({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:focient/shared/widgets/feedback/app_dialog.dart';
+import 'package:focient/shared/widgets/dialog/app_dialog.dart';
 
 void main() {
   testWidgets('show renders content and returns an action result',

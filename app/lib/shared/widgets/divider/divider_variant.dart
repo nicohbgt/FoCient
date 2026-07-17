@@ -1,0 +1,4 @@
+enum DividerVariant {
+  horizontal,
+  vertical,
+}

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../app/router/app_routes.dart';
-import '../../../../app/theme/app_spacing.dart';
 
+import '../../../../shared/widgets/badge/badge_variant.dart';
+
+import '../widgets/card/goal_card.dart';
+import '../widgets/list/goal_list.dart';
 import '../widgets/onboarding_header.dart';
 import '../widgets/onboarding_scaffold.dart';
-import '../widgets/goal_card.dart';
 
 class SetupGoalsPage extends StatelessWidget {
   const SetupGoalsPage({
@@ -23,38 +25,38 @@ class SetupGoalsPage extends StatelessWidget {
         subtitle:
             'Add your productivity goals to help FoCient generate a personalized schedule.',
       ),
-      body: Column(
-        children: [
-          GoalCard(
-            title: 'Learn Flutter',
-            category: 'Learning',
-            priority: 'High',
-            onTap: () {},
-          ),
-          const SizedBox(
-            height: AppSpacing.s16,
-          ),
-          GoalCard(
+      body: GoalList(
+        itemCount: 2,
+        onAddGoal: () {
+          context.go(
+            AppRoutes.goalForm,
+          );
+        },
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return GoalCard(
+              title: 'Learn Flutter',
+              description: 'Build FoCient using Flutter.',
+              priorityLabel: 'High',
+              priorityVariant: BadgeVariant.error,
+              deadline: '31 Dec 2026',
+              onTap: () {},
+              onEdit: () {},
+              onDelete: () {},
+            );
+          }
+
+          return GoalCard(
             title: 'Exercise',
-            category: 'Health',
-            priority: 'Medium',
+            description: 'Exercise three times a week.',
+            priorityLabel: 'Medium',
+            priorityVariant: BadgeVariant.warning,
+            deadline: '30 Nov 2026',
             onTap: () {},
-          ),
-          const SizedBox(
-            height: AppSpacing.s16,
-          ),
-          OutlinedButton.icon(
-            onPressed: () {
-              context.go(
-                AppRoutes.goalForm,
-              );
-            },
-            icon: const Icon(Icons.add),
-            label: const Text(
-              'Add Goal',
-            ),
-          ),
-        ],
+            onEdit: () {},
+            onDelete: () {},
+          );
+        },
       ),
       buttonLabel: 'Continue',
       onContinue: () {
