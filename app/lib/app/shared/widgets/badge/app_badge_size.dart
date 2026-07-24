@@ -1,0 +1,4 @@
+enum AppBadgeSize {
+  small,
+  medium,
+}

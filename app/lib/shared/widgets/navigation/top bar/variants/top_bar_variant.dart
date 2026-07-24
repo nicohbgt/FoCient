@@ -1,4 +1,0 @@
-enum TopBarVariant {
-  start,
-  center,
-}

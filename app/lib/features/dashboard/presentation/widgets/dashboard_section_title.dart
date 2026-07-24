@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/theme/app_typography.dart';
+import '../../../../app/design system/tokens/typography/app_typography.dart';
 
 class DashboardSectionTitle extends StatelessWidget {
   const DashboardSectionTitle({

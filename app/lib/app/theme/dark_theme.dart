@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
+import '../design system/tokens/colors/app_colors.dart';
 
 final ThemeData darkTheme = ThemeData(
   useMaterial3: true,

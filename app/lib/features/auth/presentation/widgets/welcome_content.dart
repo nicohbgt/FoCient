@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/theme/app_spacing.dart';
-import '../../../../app/theme/app_typography.dart';
+import '../../../../app/design system/tokens/spacing/app_spacing.dart';
+import '../../../../app/design system/tokens/typography/app_typography.dart';
 
 class WelcomeContent extends StatelessWidget {
   const WelcomeContent({

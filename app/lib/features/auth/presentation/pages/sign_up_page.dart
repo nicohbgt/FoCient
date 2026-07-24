@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../app/router/app_routes.dart';
-import '../../../../app/theme/app_spacing.dart';
+import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 
 import '../../../../shared/widgets/button/app_button.dart';
 import '../../../../shared/widgets/password field/app_password_field.dart';

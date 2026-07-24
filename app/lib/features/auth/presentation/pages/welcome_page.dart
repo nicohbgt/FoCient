@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../app/router/app_routes.dart';
-import '../../../../app/theme/app_colors.dart';
-import '../../../../app/theme/app_spacing.dart';
+import '../../../../app/design system/tokens/colors/app_colors.dart';
+import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 
 import '../widgets/welcome_bottom_panel.dart';
 import '../widgets/welcome_header.dart';

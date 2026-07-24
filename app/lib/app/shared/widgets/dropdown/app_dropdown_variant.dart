@@ -1,0 +1,4 @@
+enum AppDropdownVariant {
+  standard,
+  leadingIcon,
+}

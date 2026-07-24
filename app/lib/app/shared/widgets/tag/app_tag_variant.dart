@@ -1,0 +1,4 @@
+enum AppTagVariant {
+  filled,
+  outlined,
+}

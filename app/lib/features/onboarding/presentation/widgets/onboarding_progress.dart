@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/theme/app_colors.dart';
+import '../../../../app/design system/tokens/colors/app_colors.dart';
 import '../../../../app/theme/app_radius.dart';
 
 class OnboardingProgress extends StatelessWidget {

@@ -1,4 +1,0 @@
-enum SearchVariant {
-  outlined,
-  filled,
-}

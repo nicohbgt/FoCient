@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../app/router/app_routes.dart';
-import '../../../../app/theme/app_spacing.dart';
+import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 
 import '../../../../shared/widgets/dropdown/app_dropdown.dart';
 import '../../../../shared/widgets/text field/app_text_field.dart';

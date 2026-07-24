@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/theme/app_spacing.dart';
+import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 
 import 'dashboard_app_bar.dart';
 import 'dashboard_bottom_nav.dart';

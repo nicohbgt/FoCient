@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../app/theme/app_colors.dart';
-import '../../../../app/theme/app_typography.dart';
+import '../../../../app/design system/tokens/colors/app_colors.dart';
+import '../../../../app/design system/tokens/typography/app_typography.dart';
 
 class WelcomeLegalText extends StatelessWidget {
   const WelcomeLegalText({

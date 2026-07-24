@@ -1,0 +1,4 @@
+enum AppProgressIndicatorType {
+  circular,
+  linear,
+}
