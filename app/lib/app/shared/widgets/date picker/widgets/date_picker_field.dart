@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../design system/tokens/colors/app_colors.dart';
-
 import '../app_date_picker_state.dart';
 import '../helpers/date_picker_constants.dart';
 import '../helpers/date_picker_style.dart';

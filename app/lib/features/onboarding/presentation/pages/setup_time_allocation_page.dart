@@ -112,7 +112,7 @@ class _SetupTimeAllocationPageState extends State<SetupTimeAllocationPage> {
 
     // Mindfulness: sleep is roughly 7 h (6.5 – 7.5)
     if (sleepHours >= 6.5 && sleepHours <= 7.5) {
-      insights.add(const _InsightData(
+      insights.add(_InsightData(
         Icons.psychology,
         Color(0xFF7C3AED),
         'Mindfulness',

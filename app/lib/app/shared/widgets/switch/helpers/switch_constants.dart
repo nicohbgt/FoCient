@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class SwitchConstants {
   const SwitchConstants._();
 

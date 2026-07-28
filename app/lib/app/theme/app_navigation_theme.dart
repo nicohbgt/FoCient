@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../design system/tokens/radius/radius.dart';
-
 import 'app_color_scheme.dart';
 import 'app_text_theme.dart';
 
