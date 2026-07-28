@@ -1,16 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:uuid/uuid.dart';
 
+import '../../data/repositories/in_memory_task_repository.dart';
 import '../../domain/entities/task.dart';
+import '../../domain/repositories/task_repository.dart';
 
-class TasksNotifier extends Notifier<List<Task>> {
-  static const _uuid = Uuid();
+final taskRepositoryProvider = Provider<TaskRepository>(
+  (ref) => InMemoryTaskRepository(),
+);
+
+class TasksNotifier extends AsyncNotifier<List<Task>> {
+  TaskRepository get _repository => ref.read(taskRepositoryProvider);
 
   @override
-  List<Task> build() => [];
+  Future<List<Task>> build() {
+    return _repository.getTasks();
+  }
 
-  /// Add a new task — generates a UUID for the id.
-  void addTask({
+  Future<void> addTask({
     required String title,
     required String description,
     required String category,
@@ -19,50 +25,54 @@ class TasksNotifier extends Notifier<List<Task>> {
     required DateTime startTime,
     required DateTime endTime,
     DateTime? reminder,
-  }) {
-    final task = Task(
-      id: _uuid.v4(),
+  }) async {
+    final task = await _repository.createTask(
       title: title,
       description: description,
       category: category,
       priority: priority,
-      status: TaskStatus.todo,
       date: date,
       startTime: startTime,
       endTime: endTime,
       reminder: reminder,
     );
-    state = [...state, task];
+
+    state = AsyncData([...(state.valueOrNull ?? const []), task]);
   }
 
-  /// Replace an existing task by id.
-  void updateTask(Task updated) {
-    state = [
-      for (final t in state) t.id == updated.id ? updated : t,
-    ];
+  Future<void> updateTask(Task updated) async {
+    final task = await _repository.updateTask(updated);
+    final tasks = state.valueOrNull ?? const [];
+
+    state = AsyncData([
+      for (final item in tasks) item.id == task.id ? task : item,
+    ]);
   }
 
-  /// Remove a task by id.
-  void deleteTask(String id) {
-    state = state.where((t) => t.id != id).toList();
+  Future<void> deleteTask(String id) async {
+    await _repository.deleteTask(id);
+    final tasks = state.valueOrNull ?? const [];
+
+    state = AsyncData(tasks.where((task) => task.id != id).toList());
   }
 
-  /// Toggle between todo / inProgress / completed cycling.
-  void toggleStatus(String id) {
-    state = [
-      for (final t in state)
-        if (t.id == id)
-          t.copyWith(
-            status: t.status == TaskStatus.completed
-                ? TaskStatus.todo
-                : TaskStatus.values[t.status.index + 1],
-          )
-        else
-          t,
-    ];
+  Future<void> toggleStatus(String id) async {
+    final tasks = state.valueOrNull ?? const [];
+    final index = tasks.indexWhere((task) => task.id == id);
+
+    if (index == -1) return;
+
+    final task = tasks[index];
+    final updated = task.copyWith(
+      status: task.status == TaskStatus.completed
+          ? TaskStatus.todo
+          : TaskStatus.values[task.status.index + 1],
+    );
+
+    await updateTask(updated);
   }
 }
 
-final tasksProvider = NotifierProvider<TasksNotifier, List<Task>>(
+final tasksProvider = AsyncNotifierProvider<TasksNotifier, List<Task>>(
   TasksNotifier.new,
 );

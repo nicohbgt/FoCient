@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../app/router/app_routes.dart';
 import '../../../../app/shared/widgets/button/app_button.dart';
 import '../widgets/welcome_footer.dart';
 import '../widgets/welcome_logo.dart';
@@ -23,7 +25,7 @@ class WelcomePage extends StatelessWidget {
                 child: AppButton(
                   text: 'Get Started',
                   onPressed: () {
-                    // TODO: Navigate to Sign In
+                    context.go(AppRoutes.signIn);
                   },
                 ),
               ),

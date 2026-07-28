@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../app/router/app_routes.dart';
@@ -8,9 +9,10 @@ import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
 import '../../domain/entities/task.dart';
+import '../providers/tasks_provider.dart';
 import '../widgets/task_scaffold.dart';
 
-class TaskDetailPage extends StatelessWidget {
+class TaskDetailPage extends ConsumerWidget {
   const TaskDetailPage({
     super.key,
     required this.task,
@@ -19,7 +21,7 @@ class TaskDetailPage extends StatelessWidget {
   final Task task;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return TaskScaffold(
       title: 'Task Detail',
       child: SingleChildScrollView(
@@ -68,9 +70,34 @@ class TaskDetailPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton.icon(
-                onPressed: () {
-                  // TODO:
-                  // Show Delete Dialog
+                onPressed: () async {
+                  final shouldDelete = await showDialog<bool>(
+                    context: context,
+                    builder: (dialogContext) => AlertDialog(
+                      title: const Text('Delete Task?'),
+                      content: const Text(
+                        'This action cannot be undone.',
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => dialogContext.pop(false),
+                          child: const Text('Cancel'),
+                        ),
+                        FilledButton(
+                          onPressed: () => dialogContext.pop(true),
+                          child: const Text('Delete'),
+                        ),
+                      ],
+                    ),
+                  );
+
+                  if (shouldDelete != true || !context.mounted) return;
+
+                  await ref.read(tasksProvider.notifier).deleteTask(task.id);
+
+                  if (!context.mounted) return;
+
+                  context.pop();
                 },
                 icon: const Icon(Icons.delete_outline),
                 label: const Text(

@@ -4,12 +4,7 @@ import '../../../../app/design system/tokens/colors/app_colors.dart';
 import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
-
-enum TaskPriority {
-  low,
-  medium,
-  high,
-}
+import '../../../task/domain/entities/task.dart';
 
 class DashboardTaskCard extends StatelessWidget {
   const DashboardTaskCard({

@@ -69,7 +69,7 @@ class _EditTaskPageState extends ConsumerState<EditTaskPage> {
         _ => TaskPriority.low,
       };
 
-  void _save() {
+  Future<void> _save() async {
     final title = _titleController.text.trim();
     if (title.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -85,12 +85,18 @@ class _EditTaskPageState extends ConsumerState<EditTaskPage> {
       priority: _parsePriority(_selectedPriority),
     );
 
-    ref.read(tasksProvider.notifier).updateTask(updated);
+    await ref.read(tasksProvider.notifier).updateTask(updated);
+
+    if (!mounted) return;
+
     context.pop();
   }
 
-  void _delete() {
-    ref.read(tasksProvider.notifier).deleteTask(widget.task.id);
+  Future<void> _delete() async {
+    await ref.read(tasksProvider.notifier).deleteTask(widget.task.id);
+
+    if (!mounted) return;
+
     context.pop();
   }
 

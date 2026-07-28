@@ -30,7 +30,7 @@ class _CreateTaskPageState extends ConsumerState<CreateTaskPage> {
     super.dispose();
   }
 
-  void _submit() {
+  Future<void> _submit() async {
     final title = _titleController.text.trim();
     final description = _descriptionController.text.trim();
 
@@ -51,7 +51,7 @@ class _CreateTaskPageState extends ConsumerState<CreateTaskPage> {
 
     final now = DateTime.now();
 
-    ref.read(tasksProvider.notifier).addTask(
+    await ref.read(tasksProvider.notifier).addTask(
           title: title,
           description: description,
           category: _selectedCategory!,
@@ -60,6 +60,8 @@ class _CreateTaskPageState extends ConsumerState<CreateTaskPage> {
           startTime: now,
           endTime: now.add(const Duration(hours: 1)),
         );
+
+    if (!mounted) return;
 
     context.pop();
   }

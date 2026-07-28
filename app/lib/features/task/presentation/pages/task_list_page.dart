@@ -50,8 +50,7 @@ class _TaskListPageState extends ConsumerState<TaskListPage> {
 
   @override
   Widget build(BuildContext context) {
-    final allTasks = ref.watch(tasksProvider);
-    final filteredTasks = _applyFilter(allTasks);
+    final tasksState = ref.watch(tasksProvider);
 
     return TaskScaffold(
       title: 'Tasks',
@@ -72,19 +71,34 @@ class _TaskListPageState extends ConsumerState<TaskListPage> {
           ),
           const SizedBox(height: 24),
           Expanded(
-            child: filteredTasks.isEmpty
-                ? const TaskEmptyState()
-                : ListView.separated(
-                    itemCount: filteredTasks.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 12),
-                    itemBuilder: (context, index) {
-                      final task = filteredTasks[index];
-                      return TaskCard(
-                        task: task,
-                        onTap: () => context.push(AppRoutes.taskDetail),
+            child: tasksState.when(
+              loading: () => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              error: (error, _) => Center(
+                child: Text(error.toString()),
+              ),
+              data: (allTasks) {
+                final filteredTasks = _applyFilter(allTasks);
+
+                return filteredTasks.isEmpty
+                    ? const TaskEmptyState()
+                    : ListView.separated(
+                        itemCount: filteredTasks.length,
+                        separatorBuilder: (_, __) => const SizedBox(height: 12),
+                        itemBuilder: (context, index) {
+                          final task = filteredTasks[index];
+                          return TaskCard(
+                            task: task,
+                            onTap: () => context.push(
+                              AppRoutes.taskDetail,
+                              extra: task,
+                            ),
+                          );
+                        },
                       );
-                    },
-                  ),
+              },
+            ),
           ),
         ],
       ),
