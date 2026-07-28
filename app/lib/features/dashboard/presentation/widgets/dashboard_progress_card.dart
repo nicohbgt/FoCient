@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -31,7 +31,7 @@ class DashboardProgressCard extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(
-        AppSpacing.s20,
+        AppSpacing.xl,
       ),
       decoration: BoxDecoration(
         color: AppColors.primary.c500,
@@ -49,7 +49,7 @@ class DashboardProgressCard extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: AppSpacing.s8,
+            height: AppSpacing.sm,
           ),
           Text(
             "$percentage%",
@@ -58,7 +58,7 @@ class DashboardProgressCard extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: AppSpacing.s16,
+            height: AppSpacing.lg,
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(
@@ -74,7 +74,7 @@ class DashboardProgressCard extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: AppSpacing.s12,
+            height: AppSpacing.md,
           ),
           Text(
             "$completedTasks of $totalTasks tasks completed",
@@ -84,7 +84,7 @@ class DashboardProgressCard extends StatelessWidget {
           ),
           if (subtitle != null) ...[
             const SizedBox(
-              height: AppSpacing.s4,
+              height: AppSpacing.xs,
             ),
             Text(
               subtitle!,

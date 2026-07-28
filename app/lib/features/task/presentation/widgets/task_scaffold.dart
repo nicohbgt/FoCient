@@ -27,14 +27,14 @@ class TaskScaffold extends StatelessWidget {
         centerTitle: false,
         title: Text(
           title,
-          style: AppTypography.headlineSmall,
+          style: AppTypography.headingMedium,
         ),
       ),
       floatingActionButton: floatingActionButton,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.s20,
+            horizontal: AppSpacing.xl,
           ),
           child: child,
         ),

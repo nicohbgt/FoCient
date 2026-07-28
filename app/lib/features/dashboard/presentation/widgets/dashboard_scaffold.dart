@@ -29,7 +29,7 @@ class DashboardScaffold extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.s20,
+            horizontal: AppSpacing.lg,
           ),
           child: body,
         ),

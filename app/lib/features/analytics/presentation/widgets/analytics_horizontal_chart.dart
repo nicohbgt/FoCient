@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -37,7 +37,7 @@ class AnalyticsHorizontalChart extends StatelessWidget {
 
         return Padding(
           padding: const EdgeInsets.only(
-            bottom: AppSpacing.s20,
+            bottom: AppSpacing.xl,
           ),
           child: Column(
             children: [
@@ -56,7 +56,7 @@ class AnalyticsHorizontalChart extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: AppSpacing.s8,
+                height: AppSpacing.sm,
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(

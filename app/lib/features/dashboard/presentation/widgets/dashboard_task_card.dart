@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -44,7 +44,7 @@ class DashboardTaskCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(
-          AppSpacing.s16,
+          AppSpacing.lg,
         ),
         decoration: BoxDecoration(
           color: AppColors.neutral.c0,
@@ -68,7 +68,7 @@ class DashboardTaskCard extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: AppSpacing.s16,
+              width: AppSpacing.lg,
             ),
             Expanded(
               child: Column(
@@ -84,7 +84,7 @@ class DashboardTaskCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: AppSpacing.s4,
+                    height: AppSpacing.xs,
                   ),
                   Text(
                     category,
@@ -93,7 +93,7 @@ class DashboardTaskCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: AppSpacing.s8,
+                    height: AppSpacing.sm,
                   ),
                   Row(
                     children: [
@@ -103,11 +103,11 @@ class DashboardTaskCard extends StatelessWidget {
                         color: AppColors.neutral.c500,
                       ),
                       const SizedBox(
-                        width: AppSpacing.s4,
+                        width: AppSpacing.xs,
                       ),
                       Text(
                         "$startTime - $endTime",
-                        style: AppTypography.labelSmall.copyWith(
+                        style: AppTypography.labelMedium.copyWith(
                           color: AppColors.neutral.c500,
                         ),
                       ),
@@ -117,7 +117,7 @@ class DashboardTaskCard extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: AppSpacing.s12,
+              width: AppSpacing.md,
             ),
             Icon(
               isCompleted ? Icons.check_circle : Icons.radio_button_unchecked,

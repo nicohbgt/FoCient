@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -22,7 +22,7 @@ class DashboardQuickAction extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(
-          AppSpacing.s16,
+          AppSpacing.lg,
         ),
         decoration: BoxDecoration(
           color: AppColors.primary.c50,
@@ -50,7 +50,7 @@ class DashboardQuickAction extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: AppSpacing.s16,
+              width: AppSpacing.lg,
             ),
             Expanded(
               child: Column(
@@ -61,7 +61,7 @@ class DashboardQuickAction extends StatelessWidget {
                     style: AppTypography.titleMedium,
                   ),
                   const SizedBox(
-                    height: AppSpacing.s4,
+                    height: AppSpacing.xs,
                   ),
                   Text(
                     'Create a new task',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -29,7 +29,7 @@ class GoalCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(
-          AppSpacing.s16,
+          AppSpacing.lg,
         ),
         decoration: BoxDecoration(
           color: AppColors.neutral.c0,
@@ -51,7 +51,7 @@ class GoalCard extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: AppSpacing.s16,
+              width: AppSpacing.lg,
             ),
             Expanded(
               child: Column(
@@ -62,7 +62,7 @@ class GoalCard extends StatelessWidget {
                     style: AppTypography.titleMedium,
                   ),
                   const SizedBox(
-                    height: AppSpacing.s4,
+                    height: AppSpacing.xs,
                   ),
                   Text(
                     category,
@@ -75,8 +75,8 @@ class GoalCard extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.symmetric(
-                horizontal: AppSpacing.s12,
-                vertical: AppSpacing.s8,
+                horizontal: AppSpacing.md,
+                vertical: AppSpacing.sm,
               ),
               decoration: BoxDecoration(
                 color: AppColors.primary.c100,
@@ -86,7 +86,7 @@ class GoalCard extends StatelessWidget {
               ),
               child: Text(
                 priority,
-                style: AppTypography.labelSmall.copyWith(
+                style: AppTypography.labelMedium.copyWith(
                   color: AppColors.primary.c700,
                 ),
               ),

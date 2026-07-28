@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 
-import '../../data/analytics_dummy.dart';
-
+import '../../presentation/providers/analytics_provider.dart';
 import '../widgets/analytics_horizontal_chart.dart';
 import '../widgets/analytics_overview_card.dart';
 import '../widgets/analytics_scaffold.dart';
 import '../widgets/analytics_section_header.dart';
 import '../widgets/analytics_stat_card.dart';
 
-class AnalyticsPage extends StatelessWidget {
-  const AnalyticsPage({
-    super.key,
-  });
+class AnalyticsPage extends ConsumerWidget {
+  const AnalyticsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final analytics = AnalyticsDummy.data;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final analytics = ref.watch(analyticsProvider);
 
     return AnalyticsScaffold(
       child: SingleChildScrollView(
@@ -26,24 +24,16 @@ class AnalyticsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AnalyticsOverviewCard(
-              analytics: analytics,
-            ),
-            const SizedBox(
-              height: AppSpacing.s32,
-            ),
-            const AnalyticsSectionHeader(
-              title: 'Overview',
-            ),
-            const SizedBox(
-              height: AppSpacing.s16,
-            ),
+            AnalyticsOverviewCard(analytics: analytics),
+            const SizedBox(height: AppSpacing.xxxl),
+            const AnalyticsSectionHeader(title: 'Overview'),
+            const SizedBox(height: AppSpacing.lg),
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
-              crossAxisSpacing: AppSpacing.s16,
-              mainAxisSpacing: AppSpacing.s16,
+              crossAxisSpacing: AppSpacing.lg,
+              mainAxisSpacing: AppSpacing.lg,
               childAspectRatio: 1.35,
               children: [
                 AnalyticsStatCard(
@@ -72,15 +62,9 @@ class AnalyticsPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: AppSpacing.s32,
-            ),
-            const AnalyticsSectionHeader(
-              title: 'Task Status',
-            ),
-            const SizedBox(
-              height: AppSpacing.s16,
-            ),
+            const SizedBox(height: AppSpacing.xxxl),
+            const AnalyticsSectionHeader(title: 'Task Status'),
+            const SizedBox(height: AppSpacing.lg),
             AnalyticsHorizontalChart(
               items: [
                 AnalyticsChartItem(
@@ -100,15 +84,9 @@ class AnalyticsPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: AppSpacing.s32,
-            ),
-            const AnalyticsSectionHeader(
-              title: 'Priority Distribution',
-            ),
-            const SizedBox(
-              height: AppSpacing.s16,
-            ),
+            const SizedBox(height: AppSpacing.xxxl),
+            const AnalyticsSectionHeader(title: 'Priority Distribution'),
+            const SizedBox(height: AppSpacing.lg),
             AnalyticsHorizontalChart(
               items: [
                 AnalyticsChartItem(
@@ -128,27 +106,19 @@ class AnalyticsPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: AppSpacing.s32,
-            ),
-            const AnalyticsSectionHeader(
-              title: 'Category Distribution',
-            ),
-            const SizedBox(
-              height: AppSpacing.s16,
-            ),
+            const SizedBox(height: AppSpacing.xxxl),
+            const AnalyticsSectionHeader(title: 'Category Distribution'),
+            const SizedBox(height: AppSpacing.lg),
             AnalyticsHorizontalChart(
-              items: analytics.categoryDistribution.entries.map((entry) {
-                return AnalyticsChartItem(
-                  label: entry.key,
-                  value: entry.value,
-                  color: AppColors.primary.c500,
-                );
-              }).toList(),
+              items: analytics.categoryDistribution.entries
+                  .map((e) => AnalyticsChartItem(
+                        label: e.key,
+                        value: e.value,
+                        color: AppColors.primary.c500,
+                      ))
+                  .toList(),
             ),
-            const SizedBox(
-              height: AppSpacing.s32,
-            ),
+            const SizedBox(height: AppSpacing.xxxl),
           ],
         ),
       ),

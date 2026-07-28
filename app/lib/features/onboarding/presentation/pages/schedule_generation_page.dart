@@ -68,7 +68,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(
-            AppSpacing.s24,
+            AppSpacing.xxl,
           ),
           child: Column(
             children: [
@@ -79,15 +79,15 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
                 color: AppColors.primary.c500,
               ),
               const SizedBox(
-                height: AppSpacing.s32,
+                height: AppSpacing.xxxl,
               ),
               Text(
                 "Generating Your Schedule",
                 textAlign: TextAlign.center,
-                style: AppTypography.headlineMedium,
+                style: AppTypography.headingMedium,
               ),
               const SizedBox(
-                height: AppSpacing.s12,
+                height: AppSpacing.md,
               ),
               Text(
                 "FoCient is creating a personalized schedule based on your goals and preferences.",
@@ -97,14 +97,14 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
                 ),
               ),
               const SizedBox(
-                height: AppSpacing.s40,
+                height: AppSpacing.huge,
               ),
               LinearProgressIndicator(
                 value: progress,
                 minHeight: 8,
               ),
               const SizedBox(
-                height: AppSpacing.s12,
+                height: AppSpacing.md,
               ),
               Text(
                 status,
@@ -113,7 +113,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
               const Spacer(),
               Container(
                 padding: const EdgeInsets.all(
-                  AppSpacing.s16,
+                  AppSpacing.lg,
                 ),
                 decoration: BoxDecoration(
                   color: AppColors.primary.c50,
@@ -127,7 +127,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
                       color: AppColors.warning.c500,
                     ),
                     const SizedBox(
-                      width: AppSpacing.s12,
+                      width: AppSpacing.md,
                     ),
                     Expanded(
                       child: Text(
@@ -139,7 +139,7 @@ class _ScheduleGenerationPageState extends State<ScheduleGenerationPage> {
                 ),
               ),
               const SizedBox(
-                height: AppSpacing.s32,
+                height: AppSpacing.xxxl,
               ),
             ],
           ),

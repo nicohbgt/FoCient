@@ -1,38 +1,37 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../app/design system/tokens/spacing/app_spacing.dart';
-import '../../../../app/design system/tokens/typography/app_typography.dart';
-import '../../../../app/design system/tokens/colors/app_colors.dart';
-
-class AuthHeader extends StatelessWidget {
-  const AuthHeader({
+class AuthFooter extends StatelessWidget {
+  const AuthFooter({
     super.key,
-    required this.title,
-    required this.subtitle,
+    required this.text,
+    required this.actionText,
+    required this.onTap,
   });
 
-  final String title;
-  final String subtitle;
+  final String text;
+  final String actionText;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: AppTypography.headlineLarge,
-        ),
-        const SizedBox(
-          height: AppSpacing.s8,
-        ),
-        Text(
-          subtitle,
-          style: AppTypography.bodyMedium.copyWith(
-            color: AppColors.neutral.c500,
+    final typography = Theme.of(context).textTheme;
+
+    return Text.rich(
+      TextSpan(
+        style: typography.bodyMedium,
+        children: [
+          TextSpan(text: "$text "),
+          TextSpan(
+            text: actionText,
+            recognizer: TapGestureRecognizer()..onTap = onTap,
+            style: typography.bodyMedium?.copyWith(
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
+      textAlign: TextAlign.center,
     );
   }
 }

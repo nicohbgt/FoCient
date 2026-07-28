@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 
+import '../../../task/domain/entities/task.dart';
+import '../../../task/presentation/providers/tasks_provider.dart';
 import '../widgets/dashboard_scaffold.dart';
 import '../widgets/dashboard_header.dart';
 import '../widgets/dashboard_progress_card.dart';
@@ -9,55 +12,58 @@ import '../widgets/dashboard_current_focus.dart';
 import '../widgets/dashboard_priority_section.dart';
 import '../widgets/dashboard_quick_action.dart';
 
-import '../../data/dashboard_dummy.dart';
-
-class DashboardHomePage extends StatelessWidget {
-  const DashboardHomePage({
-    super.key,
-  });
+class DashboardHomePage extends ConsumerWidget {
+  const DashboardHomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final tasks = ref.watch(tasksProvider);
+
+    final completed =
+        tasks.where((t) => t.status == TaskStatus.completed).length;
+    final total = tasks.length;
+
+    final todayTasks = tasks.where((t) {
+      final now = DateTime.now();
+      final d = t.date;
+      return d.year == now.year && d.month == now.month && d.day == now.day;
+    }).toList();
+
+    final pendingCount =
+        todayTasks.where((t) => t.status != TaskStatus.completed).length;
+
+    final message = total == 0
+        ? 'No tasks yet. Add some to get started!'
+        : pendingCount == 0
+            ? 'All done for today! Great work!'
+            : 'You have $pendingCount task${pendingCount == 1 ? '' : 's'} waiting today.';
+
     return DashboardScaffold(
       currentIndex: 0,
       onDestinationSelected: (index) {},
       body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.only(
-          top: AppSpacing.s24,
-          bottom: AppSpacing.s32,
+          top: AppSpacing.xxl,
+          bottom: AppSpacing.xxxl,
         ),
         children: [
           DashboardHeader(
-            userName: DashboardDummy.userName,
-            message: DashboardDummy.todayMessage,
+            userName: 'User',
+            message: message,
           ),
-          const SizedBox(
-            height: AppSpacing.s24,
-          ),
+          const SizedBox(height: AppSpacing.xxl),
           DashboardProgressCard(
-            completedTasks: DashboardDummy.completedTasks,
-            totalTasks: DashboardDummy.totalTasks,
+            completedTasks: completed,
+            totalTasks: total,
           ),
-          const SizedBox(
-            height: AppSpacing.s24,
-          ),
+          const SizedBox(height: AppSpacing.xxl),
           DashboardCurrentFocus(),
-          const SizedBox(
-            height: AppSpacing.s32,
-          ),
-          DashboardQuickAction(
-            onTap: () {
-              // TODO: Navigate to Create Task Page
-            },
-          ),
-          const SizedBox(
-            height: AppSpacing.s32,
-          ),
+          const SizedBox(height: AppSpacing.xxxl),
+          DashboardQuickAction(onTap: () {}),
+          const SizedBox(height: AppSpacing.xxxl),
           DashboardPrioritySection(),
-          const SizedBox(
-            height: AppSpacing.s32,
-          ),
+          const SizedBox(height: AppSpacing.xxxl),
         ],
       ),
     );

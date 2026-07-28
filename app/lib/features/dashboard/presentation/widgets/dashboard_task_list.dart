@@ -24,12 +24,12 @@ class DashboardTaskList extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: AppSpacing.s16,
+          height: AppSpacing.lg,
         ),
         ...DashboardDummy.todayTasks.map(
           (task) => Padding(
             padding: const EdgeInsets.only(
-              bottom: AppSpacing.s12,
+              bottom: AppSpacing.md,
             ),
             child: DashboardTaskCard(
               title: task.title,

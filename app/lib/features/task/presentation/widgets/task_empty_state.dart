@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -17,7 +17,7 @@ class TaskEmptyState extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(AppSpacing.s24),
+        padding: const EdgeInsets.all(AppSpacing.xxl),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -37,15 +37,15 @@ class TaskEmptyState extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: AppSpacing.s24,
+              height: AppSpacing.xxl,
             ),
             Text(
               'No Tasks Yet',
-              style: AppTypography.headlineSmall,
+              style: AppTypography.headingMedium,
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: AppSpacing.s12,
+              height: AppSpacing.md,
             ),
             Text(
               'Start organizing your day by creating your first task.',
@@ -55,7 +55,7 @@ class TaskEmptyState extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: AppSpacing.s32,
+              height: AppSpacing.xxl,
             ),
             FilledButton.icon(
               onPressed: onCreateTask,

@@ -1,39 +1,31 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/design system/tokens/typography/app_typography.dart';
-
-class AuthFooter extends StatelessWidget {
-  const AuthFooter({
+class AuthHeader extends StatelessWidget {
+  const AuthHeader({
     super.key,
-    required this.text,
-    required this.buttonText,
-    required this.onPressed,
+    required this.title,
+    required this.subtitle,
   });
 
-  final String text;
-  final String buttonText;
-
-  final VoidCallback onPressed;
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    final typography = Theme.of(context).textTheme;
+
+    return Column(
       children: [
         Text(
-          text,
-          style: AppTypography.bodyMedium,
+          title,
+          textAlign: TextAlign.center,
+          style: typography.headlineMedium,
         ),
-        TextButton(
-          onPressed: onPressed,
-          child: Text(
-            buttonText,
-            style: AppTypography.bodyMedium.copyWith(
-              color: AppColors.primary.c500,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+        const SizedBox(height: 12),
+        Text(
+          subtitle,
+          textAlign: TextAlign.center,
+          style: typography.bodyLarge,
         ),
       ],
     );

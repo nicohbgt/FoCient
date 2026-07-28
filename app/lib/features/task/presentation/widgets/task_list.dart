@@ -33,7 +33,7 @@ class TaskList extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemCount: tasks.length,
       separatorBuilder: (_, __) => const SizedBox(
-        height: AppSpacing.s12,
+        height: AppSpacing.md,
       ),
       itemBuilder: (context, index) {
         final task = tasks[index];

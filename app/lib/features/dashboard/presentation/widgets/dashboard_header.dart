@@ -30,14 +30,14 @@ class DashboardHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: AppSpacing.s4,
+          height: AppSpacing.xs,
         ),
         Text(
           userName,
-          style: AppTypography.headlineMedium,
+          style: AppTypography.headingMedium,
         ),
         const SizedBox(
-          height: AppSpacing.s8,
+          height: AppSpacing.sm,
         ),
         Text(
           message ?? "Today is a great day to accomplish your goals.",

@@ -31,7 +31,7 @@ class OnboardingHeader extends StatelessWidget {
           totalSteps: totalSteps,
         ),
         const SizedBox(
-          height: AppSpacing.s20,
+          height: AppSpacing.xl,
         ),
         Text(
           'Step $currentStep of $totalSteps',
@@ -40,14 +40,14 @@ class OnboardingHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: AppSpacing.s8,
+          height: AppSpacing.sm,
         ),
         Text(
           title,
-          style: AppTypography.headlineLarge,
+          style: AppTypography.headingLarge,
         ),
         const SizedBox(
-          height: AppSpacing.s8,
+          height: AppSpacing.sm,
         ),
         Text(
           subtitle,

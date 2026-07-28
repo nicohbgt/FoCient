@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/task.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -23,7 +23,7 @@ class TaskCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(AppRadius.r16),
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(AppSpacing.s16),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         decoration: BoxDecoration(
           color: AppColors.neutral.c0,
           borderRadius: BorderRadius.circular(AppRadius.r16),
@@ -44,7 +44,7 @@ class TaskCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(width: AppSpacing.s16),
+            const SizedBox(width: AppSpacing.lg),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,14 +59,14 @@ class TaskCard extends StatelessWidget {
                           : null,
                     ),
                   ),
-                  const SizedBox(height: AppSpacing.s4),
+                  const SizedBox(height: AppSpacing.xs),
                   Text(
                     task.category,
                     style: AppTypography.bodySmall.copyWith(
                       color: AppColors.neutral.c500,
                     ),
                   ),
-                  const SizedBox(height: AppSpacing.s12),
+                  const SizedBox(height: AppSpacing.md),
                   Row(
                     children: [
                       Icon(
@@ -74,10 +74,10 @@ class TaskCard extends StatelessWidget {
                         size: 16,
                         color: AppColors.neutral.c500,
                       ),
-                      const SizedBox(width: AppSpacing.s4),
+                      const SizedBox(width: AppSpacing.xs),
                       Text(
                         _timeText,
-                        style: AppTypography.labelSmall.copyWith(
+                        style: AppTypography.labelMedium.copyWith(
                           color: AppColors.neutral.c500,
                         ),
                       ),
@@ -86,7 +86,7 @@ class TaskCard extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(width: AppSpacing.s12),
+            const SizedBox(width: AppSpacing.md),
             Icon(
               task.status == TaskStatus.completed
                   ? Icons.check_circle

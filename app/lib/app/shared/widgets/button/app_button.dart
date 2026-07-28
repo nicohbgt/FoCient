@@ -62,7 +62,7 @@ class AppButton extends StatelessWidget {
   Color get _foregroundColor {
     return state == AppButtonState.disabled
         ? AppColors.neutral.c400
-        : Colors.white;
+        : AppColors.neutral.c0;
   }
 
   Size get _buttonSize {

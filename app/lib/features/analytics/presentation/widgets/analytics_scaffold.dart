@@ -23,13 +23,15 @@ class AnalyticsScaffold extends StatelessWidget {
         centerTitle: false,
         title: Text(
           'Analytics',
-          style: AppTypography.headlineSmall,
+          style: AppTypography.headingMedium.copyWith(
+            color: AppColors.neutral.c900,
+          ),
         ),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.s20,
+            horizontal: AppSpacing.xl,
           ),
           child: child,
         ),

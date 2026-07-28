@@ -28,7 +28,7 @@ class TaskFilterBar extends StatelessWidget {
         children: filters.map((filter) {
           return Padding(
             padding: const EdgeInsets.only(
-              right: AppSpacing.s8,
+              right: AppSpacing.xs,
             ),
             child: TaskFilterChip(
               label: filter,

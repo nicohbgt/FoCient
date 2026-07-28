@@ -42,12 +42,12 @@ class OnboardingScaffold extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.s20),
+          padding: const EdgeInsets.all(AppSpacing.xl),
           child: Column(
             children: [
               header,
               const SizedBox(
-                height: AppSpacing.s24,
+                height: AppSpacing.xxl,
               ),
               Expanded(
                 child: body,
@@ -57,7 +57,7 @@ class OnboardingScaffold extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: SafeArea(
-        minimum: const EdgeInsets.all(AppSpacing.s20),
+        minimum: const EdgeInsets.all(AppSpacing.xl),
         child: FilledButton(
           onPressed: onContinue,
           child: Text(buttonLabel),

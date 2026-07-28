@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -22,7 +22,7 @@ class TaskFilterChip extends StatelessWidget {
     return ChoiceChip(
       label: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.s4,
+          horizontal: AppSpacing.xs,
         ),
         child: Text(
           label,

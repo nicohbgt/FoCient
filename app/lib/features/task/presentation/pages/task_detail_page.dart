@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../app/router/app_routes.dart';
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -27,15 +27,15 @@ class TaskDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _TaskInfoCard(task: task),
-            const SizedBox(height: AppSpacing.s24),
+            const SizedBox(height: AppSpacing.xxl),
             Text(
               'Description',
               style: AppTypography.titleMedium,
             ),
-            const SizedBox(height: AppSpacing.s12),
+            const SizedBox(height: AppSpacing.md),
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(AppSpacing.s16),
+              padding: const EdgeInsets.all(AppSpacing.lg),
               decoration: BoxDecoration(
                 color: AppColors.neutral.c0,
                 borderRadius: BorderRadius.circular(AppRadius.r16),
@@ -48,7 +48,7 @@ class TaskDetailPage extends StatelessWidget {
                 style: AppTypography.bodyMedium,
               ),
             ),
-            const SizedBox(height: AppSpacing.s32),
+            const SizedBox(height: AppSpacing.xxxl),
             SizedBox(
               width: double.infinity,
               child: FilledButton.icon(
@@ -64,7 +64,7 @@ class TaskDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: AppSpacing.s12),
+            const SizedBox(height: AppSpacing.md),
             SizedBox(
               width: double.infinity,
               child: OutlinedButton.icon(
@@ -96,7 +96,7 @@ class _TaskInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(AppSpacing.s20),
+      padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
         color: AppColors.neutral.c0,
         borderRadius: BorderRadius.circular(
@@ -111,14 +111,14 @@ class _TaskInfoCard extends StatelessWidget {
         children: [
           Text(
             task.title,
-            style: AppTypography.headlineSmall,
+            style: AppTypography.headingMedium,
           ),
           const SizedBox(
-            height: AppSpacing.s12,
+            height: AppSpacing.md,
           ),
           Wrap(
-            spacing: AppSpacing.s8,
-            runSpacing: AppSpacing.s8,
+            spacing: AppSpacing.sm,
+            runSpacing: AppSpacing.sm,
             children: [
               _InfoChip(
                 icon: Icons.folder_outlined,
@@ -185,8 +185,8 @@ class _InfoChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.s12,
-        vertical: AppSpacing.s8,
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.sm,
       ),
       decoration: BoxDecoration(
         color: AppColors.neutral.c100,
@@ -202,7 +202,7 @@ class _InfoChip extends StatelessWidget {
             size: 16,
           ),
           const SizedBox(
-            width: AppSpacing.s8,
+            width: AppSpacing.sm,
           ),
           Text(
             label,

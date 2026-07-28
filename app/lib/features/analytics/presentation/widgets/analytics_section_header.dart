@@ -34,7 +34,7 @@ class AnalyticsSectionHeader extends StatelessWidget {
               ),
               if (subtitle != null) ...[
                 const SizedBox(
-                  height: AppSpacing.s4,
+                  height: AppSpacing.xs,
                 ),
                 Text(
                   subtitle!,

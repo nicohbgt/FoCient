@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/colors/app_colors.dart';
-import '../../../../app/theme/app_radius.dart';
+import '../../../../app/design system/tokens/radius/app_radius.dart';
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 import '../../../../app/design system/tokens/typography/app_typography.dart';
 
@@ -20,7 +20,7 @@ class AnalyticsOverviewCard extends StatelessWidget {
     final completionRate = analytics.completionRate;
 
     return Container(
-      padding: const EdgeInsets.all(AppSpacing.s20),
+      padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
         color: AppColors.primary.c500,
         borderRadius: BorderRadius.circular(
@@ -37,7 +37,7 @@ class AnalyticsOverviewCard extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: AppSpacing.s20,
+            height: AppSpacing.xl,
           ),
           Text(
             '${(completionRate * 100).toStringAsFixed(0)}%',
@@ -46,7 +46,7 @@ class AnalyticsOverviewCard extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: AppSpacing.s12,
+            height: AppSpacing.md,
           ),
           LinearProgressIndicator(
             value: completionRate,
@@ -60,7 +60,7 @@ class AnalyticsOverviewCard extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: AppSpacing.s20,
+            height: AppSpacing.xl,
           ),
           Row(
             children: [
@@ -105,12 +105,12 @@ class _OverviewItem extends StatelessWidget {
       children: [
         Text(
           value,
-          style: AppTypography.headlineSmall.copyWith(
+          style: AppTypography.headingMedium.copyWith(
             color: Colors.white,
           ),
         ),
         const SizedBox(
-          height: AppSpacing.s4,
+          height: AppSpacing.xs,
         ),
         Text(
           label,

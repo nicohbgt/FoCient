@@ -23,7 +23,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
         height: preferredSize.height,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.s20,
+            horizontal: AppSpacing.lg,
           ),
           child: Row(
             children: [

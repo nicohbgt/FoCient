@@ -4,9 +4,6 @@ import 'app_routes.dart';
 
 import '../../features/auth/presentation/pages/sign_in_page.dart';
 import '../../features/auth/presentation/pages/sign_up_page.dart';
-import '../../features/auth/presentation/pages/forgot_password_page.dart';
-import '../../features/auth/presentation/pages/reset_password_page.dart';
-import '../../features/auth/presentation/pages/reset_success_page.dart';
 import '../../features/auth/presentation/pages/welcome_page.dart';
 
 import '../../features/onboarding/presentation/pages/setup_goal_page.dart';
@@ -44,18 +41,6 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.signIn,
         builder: (context, state) => const SignInPage(),
-      ),
-      GoRoute(
-        path: AppRoutes.forgotPassword,
-        builder: (context, state) => const ForgotPasswordPage(),
-      ),
-      GoRoute(
-        path: AppRoutes.resetPassword,
-        builder: (context, state) => const ResetPasswordPage(),
-      ),
-      GoRoute(
-        path: AppRoutes.resetSuccess,
-        builder: (context, state) => const ResetSuccessPage(),
       ),
 
       // Onboarding
