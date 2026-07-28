@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../app/shared/widgets/button/button.dart';
 import '../../../../app/shared/widgets/checkbox/checkbox.dart';
 import '../../../../app/shared/widgets/password field/password_field.dart';
-import '../../../../app/shared/widgets/text field/text_field.dart';
+import '../../../../app/shared/widgets/text field/app_text_field.dart';
 
 import '../widgets/auth_footer.dart';
 import '../widgets/auth_header.dart';
@@ -75,7 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         value: _rememberMe,
                         onChanged: (value) {
                           setState(() {
-                            _rememberMe = value ?? false;
+                            _rememberMe = value;
                           });
                         },
                       ),

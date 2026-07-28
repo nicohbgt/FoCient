@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/shared/widgets/button/app_button.dart';
 import '../../../../app/shared/widgets/checkbox/app_checkbox.dart';
 
 class RememberMe extends StatelessWidget {

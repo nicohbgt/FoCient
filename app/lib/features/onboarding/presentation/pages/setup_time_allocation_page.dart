@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../app/router/app_routes.dart';
 import '../../../../app/shared/widgets/button/app_button.dart';
 import '../../../../app/shared/widgets/button/app_button_variant.dart';
-import '../../../../shared/widgets/time picker/app_time_picker.dart';
 
 import '../widgets/weekday_selector.dart';
 
@@ -43,8 +42,6 @@ class _SetupTimeAllocationPageState extends State<SetupTimeAllocationPage> {
   // Whether each field has been set by the user (or uses defaults)
   bool _sleepEndSet = false;
 
-  String _timezone = 'UTC+07:00';
-
   // ── Helpers ─────────────────────────────────────────────────────────────
 
   /// Convert a TimeOfDay to a display string like "09:00 WIB (UTC+7)"
@@ -63,42 +60,26 @@ class _SetupTimeAllocationPageState extends State<SetupTimeAllocationPage> {
   }
 
   // ── Time picker ──────────────────────────────────────────────────────────
-  void _showTimePicker(
-      TimeOfDay initial, void Function(TimeOfDay picked) onConfirm) {
-    // We carry mutable refs through the dialog via these locals so the
-    // picker callbacks can update them before the user taps OK.
-    int pickedHour = initial.hour;
-    int pickedMinute = initial.minute;
-
-    showDialog(
+  Future<void> _showTimePicker(
+    TimeOfDay initial,
+    void Function(TimeOfDay picked) onConfirm,
+  ) async {
+    final picked = await showTimePicker(
       context: context,
-      builder: (_) => AppTimePicker(
-        hour: initial.hour,
-        minute: initial.minute,
-        is24Hour: true,
-        isAm: initial.hour < 12,
-        timezone: _timezone,
-        onCancel: () => Navigator.pop(context),
-        onConfirm: () {
-          onConfirm(TimeOfDay(hour: pickedHour, minute: pickedMinute));
-          Navigator.pop(context);
-        },
-        onHourTap: () {},
-        onMinuteTap: () {},
-        onTimezoneChanged: (value) {
-          setState(() => _timezone = value);
-        },
-        onToggleFormat: (is24) {},
-        onToggleAmPm: (isAm) {
-          // flip hour between AM/PM
-          if (isAm && pickedHour >= 12) {
-            pickedHour -= 12;
-          } else if (!isAm && pickedHour < 12) {
-            pickedHour += 12;
-          }
-        },
-      ),
+      initialTime: initial,
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          child: child!,
+        );
+      },
     );
+
+    if (picked == null) {
+      return;
+    }
+
+    onConfirm(picked);
   }
 
   // ── AI Insight computation ───────────────────────────────────────────────

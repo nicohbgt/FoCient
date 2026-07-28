@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/design system/tokens/spacing/app_spacing.dart';
 
-import '../../../../shared/widgets/dropdown/app_dropdown.dart';
-import '../../../../shared/widgets/text field/app_text_field.dart';
+import '../../../../app/shared/widgets/dropdown/app_dropdown.dart';
+import '../../../../app/shared/widgets/dropdown/app_dropdown_item.dart';
+import '../../../../app/shared/widgets/text field/app_text_field.dart';
 
 class TaskForm extends StatelessWidget {
   const TaskForm({
@@ -35,7 +36,7 @@ class TaskForm extends StatelessWidget {
           hintText: 'Enter task title',
         ),
         const SizedBox(
-          height: AppSpacing.s20,
+          height: AppSpacing.xl,
         ),
         AppTextField(
           controller: descriptionController,
@@ -43,36 +44,32 @@ class TaskForm extends StatelessWidget {
           hintText: 'Enter description',
         ),
         const SizedBox(
-          height: AppSpacing.s20,
+          height: AppSpacing.xl,
         ),
         AppDropdown<String>(
-          label: 'Priority',
-          hint: 'Select priority',
           items: const [
-            'High',
-            'Medium',
-            'Low',
+            AppDropdownItem(value: 'High', label: 'High'),
+            AppDropdownItem(value: 'Medium', label: 'Medium'),
+            AppDropdownItem(value: 'Low', label: 'Low'),
           ],
           value: selectedPriority,
-          itemLabelBuilder: (value) => value,
-          onSelected: onPriorityChanged,
+          hintText: 'Select priority',
+          onChanged: onPriorityChanged,
         ),
         const SizedBox(
-          height: AppSpacing.s20,
+          height: AppSpacing.xl,
         ),
         AppDropdown<String>(
-          label: 'Category',
-          hint: 'Select category',
           items: const [
-            'Development',
-            'College',
-            'Personal',
-            'Health',
-            'Learning',
+            AppDropdownItem(value: 'Development', label: 'Development'),
+            AppDropdownItem(value: 'College', label: 'College'),
+            AppDropdownItem(value: 'Personal', label: 'Personal'),
+            AppDropdownItem(value: 'Health', label: 'Health'),
+            AppDropdownItem(value: 'Learning', label: 'Learning'),
           ],
           value: selectedCategory,
-          itemLabelBuilder: (value) => value,
-          onSelected: onCategoryChanged,
+          hintText: 'Select category',
+          onChanged: onCategoryChanged,
         ),
       ],
     );

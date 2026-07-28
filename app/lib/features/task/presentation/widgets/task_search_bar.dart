@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../shared/widgets/text field/app_text_field.dart';
+import '../../../../app/shared/widgets/text field/app_text_field.dart';
+import '../../../../app/shared/widgets/text field/app_text_field_variant.dart';
 
 class TaskSearchBar extends StatelessWidget {
   const TaskSearchBar({
@@ -17,7 +18,8 @@ class TaskSearchBar extends StatelessWidget {
     return AppTextField(
       controller: controller,
       hintText: 'Search task...',
-      prefixIcon: const Icon(Icons.search),
+      variant: AppTextFieldVariant.leadingIcon,
+      leading: const Icon(Icons.search),
       onChanged: onChanged,
     );
   }
